@@ -1,35 +1,45 @@
 {
   "id": 1,
-  "name": "episodes",
+  "name": "events",
   "value": "",
   "l": [
     {
-      "id": 420,
-      "name": "episode_1",
+      "id": 277,
+      "name": "event_1",
       "value": "",
       "l": [
         {
-          "id": 422,
-          "name": "{0}",
+          "id": 323,
+          "name": "{1}",
           "value": "",
           "l": [
             {
-              "id": 468,
-              "name": "transition",
-              "value": "linear",
+              "id": 344,
+              "name": "category",
+              "value": "TimeStep",
               "l": [],
-              "type": 0,
+              "type": 1,
               "ideaComparator": {
                 "order": true
               }
             },
             {
-              "id": 424,
+              "id": 365,
+              "name": "time",
+              "value": "1",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 324,
               "name": "object_1",
               "value": "",
               "l": [
                 {
-                  "id": 425,
+                  "id": 325,
                   "name": "category",
                   "value": "Object",
                   "l": [],
@@ -39,17 +49,17 @@
                   }
                 },
                 {
-                  "id": 426,
+                  "id": 326,
                   "name": "color",
                   "value": "",
                   "l": [
                     {
-                      "id": 428,
+                      "id": 327,
                       "name": "B",
                       "value": "0",
                       "l": [
                         {
-                          "id": 429,
+                          "id": 328,
                           "name": "category",
                           "value": "QualityDimension",
                           "l": [],
@@ -65,75 +75,12 @@
                       }
                     },
                     {
-                      "id": 432,
-                      "name": "R",
-                      "value": "255",
-                      "l": [
-                        {
-                          "id": 433,
-                          "name": "category",
-                          "value": "QualityDimension",
-                          "l": [],
-                          "type": 0,
-                          "ideaComparator": {
-                            "order": true
-                          }
-                        }
-                      ],
-                      "type": 3,
-                      "ideaComparator": {
-                        "order": true
-                      }
-                    },
-                    {
-                      "id": 427,
-                      "name": "category",
-                      "value": "Property",
-                      "l": [],
-                      "type": 1,
-                      "ideaComparator": {
-                        "order": true
-                      }
-                    },
-                    {
-                      "id": 430,
+                      "id": 332,
                       "name": "G",
                       "value": "0",
                       "l": [
                         {
-                          "id": 431,
-                          "name": "category",
-                          "value": "QualityDimension",
-                          "l": [],
-                          "type": 0,
-                          "ideaComparator": {
-                            "order": true
-                          }
-                        }
-                      ],
-                      "type": 3,
-                      "ideaComparator": {
-                        "order": true
-                      }
-                    }
-                  ],
-                  "type": 1,
-                  "ideaComparator": {
-                    "order": true
-                  }
-                },
-                {
-                  "id": 434,
-                  "name": "n_vertices",
-                  "value": "",
-                  "l": [
-                    {
-                      "id": 436,
-                      "name": "n_vertices",
-                      "value": "4",
-                      "l": [
-                        {
-                          "id": 437,
+                          "id": 333,
                           "name": "category",
                           "value": "QualityDimension",
                           "l": [],
@@ -149,7 +96,28 @@
                       }
                     },
                     {
-                      "id": 435,
+                      "id": 329,
+                      "name": "R",
+                      "value": "255",
+                      "l": [
+                        {
+                          "id": 330,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 0,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 331,
                       "name": "category",
                       "value": "Property",
                       "l": [],
@@ -165,54 +133,75 @@
                   }
                 },
                 {
-                  "id": 438,
+                  "id": 334,
+                  "name": "n_vertices",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 336,
+                      "name": "n_vertices",
+                      "value": "4",
+                      "l": [
+                        {
+                          "id": 337,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 0,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 335,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 338,
                   "name": "position",
                   "value": "",
                   "l": [
                     {
-                      "id": 442,
-                      "name": "x",
-                      "value": "0",
+                      "id": 342,
+                      "name": "position",
+                      "value": "A",
                       "l": [
                         {
-                          "id": 443,
+                          "id": 343,
                           "name": "category",
-                          "value": "QualityDimension",
+                          "value": "PropertyCategory",
                           "l": [],
-                          "type": 0,
+                          "type": 1,
                           "ideaComparator": {
                             "order": true
                           }
                         }
                       ],
-                      "type": 3,
+                      "type": 9,
                       "ideaComparator": {
                         "order": true
                       }
                     },
                     {
-                      "id": 439,
-                      "name": "y",
-                      "value": "0",
-                      "l": [
-                        {
-                          "id": 440,
-                          "name": "category",
-                          "value": "QualityDimension",
-                          "l": [],
-                          "type": 0,
-                          "ideaComparator": {
-                            "order": true
-                          }
-                        }
-                      ],
-                      "type": 3,
-                      "ideaComparator": {
-                        "order": true
-                      }
-                    },
-                    {
-                      "id": 441,
+                      "id": 341,
                       "name": "category",
                       "value": "Property",
                       "l": [],
@@ -232,9 +221,30 @@
               "ideaComparator": {
                 "order": true
               }
-            },
+            }
+          ],
+          "type": 8,
+          "ideaComparator": {
+            "order": true
+          }
+        },
+        {
+          "id": 278,
+          "name": "category",
+          "value": "Event",
+          "l": [],
+          "type": 1,
+          "ideaComparator": {
+            "order": true
+          }
+        },
+        {
+          "id": 279,
+          "name": "{0}",
+          "value": "",
+          "l": [
             {
-              "id": 444,
+              "id": 300,
               "name": "category",
               "value": "TimeStep",
               "l": [],
@@ -244,7 +254,7 @@
               }
             },
             {
-              "id": 423,
+              "id": 301,
               "name": "time",
               "value": "0",
               "l": [],
@@ -252,22 +262,11 @@
               "ideaComparator": {
                 "order": true
               }
-            }
-          ],
-          "type": 8,
-          "ideaComparator": {
-            "order": true
-          }
-        },
-        {
-          "id": 255,
-          "name": "{2}",
-          "value": "",
-          "l": [
+            },
             {
-              "id": 277,
-              "name": "time",
-              "value": "2",
+              "id": 322,
+              "name": "transition",
+              "value": "linear",
               "l": [],
               "type": 1,
               "ideaComparator": {
@@ -275,12 +274,12 @@
               }
             },
             {
-              "id": 256,
+              "id": 302,
               "name": "object_1",
               "value": "",
               "l": [
                 {
-                  "id": 257,
+                  "id": 303,
                   "name": "category",
                   "value": "Object",
                   "l": [],
@@ -290,17 +289,17 @@
                   }
                 },
                 {
-                  "id": 258,
+                  "id": 304,
                   "name": "color",
                   "value": "",
                   "l": [
                     {
-                      "id": 260,
+                      "id": 306,
                       "name": "B",
                       "value": "0",
                       "l": [
                         {
-                          "id": 261,
+                          "id": 307,
                           "name": "category",
                           "value": "QualityDimension",
                           "l": [],
@@ -316,12 +315,12 @@
                       }
                     },
                     {
-                      "id": 264,
+                      "id": 310,
                       "name": "R",
                       "value": "255",
                       "l": [
                         {
-                          "id": 265,
+                          "id": 311,
                           "name": "category",
                           "value": "QualityDimension",
                           "l": [],
@@ -337,7 +336,7 @@
                       }
                     },
                     {
-                      "id": 259,
+                      "id": 305,
                       "name": "category",
                       "value": "Property",
                       "l": [],
@@ -347,12 +346,12 @@
                       }
                     },
                     {
-                      "id": 262,
+                      "id": 308,
                       "name": "G",
                       "value": "0",
                       "l": [
                         {
-                          "id": 263,
+                          "id": 309,
                           "name": "category",
                           "value": "QualityDimension",
                           "l": [],
@@ -374,12 +373,12 @@
                   }
                 },
                 {
-                  "id": 266,
+                  "id": 312,
                   "name": "n_vertices",
                   "value": "",
                   "l": [
                     {
-                      "id": 269,
+                      "id": 315,
                       "name": "category",
                       "value": "Property",
                       "l": [],
@@ -389,12 +388,12 @@
                       }
                     },
                     {
-                      "id": 267,
+                      "id": 313,
                       "name": "n_vertices",
                       "value": "4",
                       "l": [
                         {
-                          "id": 268,
+                          "id": 314,
                           "name": "category",
                           "value": "QualityDimension",
                           "l": [],
@@ -416,54 +415,33 @@
                   }
                 },
                 {
-                  "id": 270,
+                  "id": 316,
                   "name": "position",
                   "value": "",
                   "l": [
                     {
-                      "id": 274,
-                      "name": "x",
-                      "value": "2",
+                      "id": 318,
+                      "name": "position",
+                      "value": "B",
                       "l": [
                         {
-                          "id": 275,
+                          "id": 319,
                           "name": "category",
-                          "value": "QualityDimension",
+                          "value": "PropertyCategory",
                           "l": [],
-                          "type": 0,
+                          "type": 1,
                           "ideaComparator": {
                             "order": true
                           }
                         }
                       ],
-                      "type": 3,
+                      "type": 9,
                       "ideaComparator": {
                         "order": true
                       }
                     },
                     {
-                      "id": 271,
-                      "name": "y",
-                      "value": "0",
-                      "l": [
-                        {
-                          "id": 272,
-                          "name": "category",
-                          "value": "QualityDimension",
-                          "l": [],
-                          "type": 0,
-                          "ideaComparator": {
-                            "order": true
-                          }
-                        }
-                      ],
-                      "type": 3,
-                      "ideaComparator": {
-                        "order": true
-                      }
-                    },
-                    {
-                      "id": 273,
+                      "id": 317,
                       "name": "category",
                       "value": "Property",
                       "l": [],
@@ -483,35 +461,15 @@
               "ideaComparator": {
                 "order": true
               }
-            },
-            {
-              "id": 276,
-              "name": "category",
-              "value": "TimeStep",
-              "l": [],
-              "type": 1,
-              "ideaComparator": {
-                "order": true
-              }
             }
           ],
           "type": 8,
           "ideaComparator": {
             "order": true
           }
-        },
-        {
-          "id": 421,
-          "name": "category",
-          "value": "episode",
-          "l": [],
-          "type": 1,
-          "ideaComparator": {
-            "order": true
-          }
         }
       ],
-      "type": 4,
+      "type": 0,
       "ideaComparator": {
         "order": true
       }

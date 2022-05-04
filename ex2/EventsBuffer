@@ -1,0 +1,2063 @@
+{
+  "id": 1,
+  "name": "events_buffer",
+  "value": "",
+  "l": [
+    {
+      "id": 450,
+      "name": "event_1",
+      "value": "",
+      "l": [
+        {
+          "id": 495,
+          "name": "{1}",
+          "value": "",
+          "l": [
+            {
+              "id": 516,
+              "name": "category",
+              "value": "TimeStep",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 537,
+              "name": "time",
+              "value": "1",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 496,
+              "name": "object_1",
+              "value": "",
+              "l": [
+                {
+                  "id": 497,
+                  "name": "category",
+                  "value": "Object",
+                  "l": [],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 498,
+                  "name": "color",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 499,
+                      "name": "B",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 500,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 504,
+                      "name": "G",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 505,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 501,
+                      "name": "R",
+                      "value": "255",
+                      "l": [
+                        {
+                          "id": 502,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 503,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 506,
+                  "name": "n_vertices",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 508,
+                      "name": "n_vertices",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 509,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 507,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 510,
+                  "name": "position",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 514,
+                      "name": "x",
+                      "value": "-2",
+                      "l": [
+                        {
+                          "id": 515,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 511,
+                      "name": "y",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 512,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 513,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                }
+              ],
+              "type": 10,
+              "ideaComparator": {
+                "order": true
+              }
+            }
+          ],
+          "type": 8,
+          "ideaComparator": {
+            "order": true
+          }
+        },
+        {
+          "id": 451,
+          "name": "category",
+          "value": "Event",
+          "l": [],
+          "type": 1,
+          "ideaComparator": {
+            "order": true
+          }
+        },
+        {
+          "id": 452,
+          "name": "{0}",
+          "value": "",
+          "l": [
+            {
+              "id": 538,
+              "name": "transition",
+              "value": "linear",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 473,
+              "name": "category",
+              "value": "TimeStep",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 474,
+              "name": "time",
+              "value": "0",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 475,
+              "name": "object_1",
+              "value": "",
+              "l": [
+                {
+                  "id": 476,
+                  "name": "category",
+                  "value": "Object",
+                  "l": [],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 477,
+                  "name": "color",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 479,
+                      "name": "B",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 480,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 483,
+                      "name": "R",
+                      "value": "255",
+                      "l": [
+                        {
+                          "id": 484,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 478,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 481,
+                      "name": "G",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 482,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 485,
+                  "name": "n_vertices",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 488,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 486,
+                      "name": "n_vertices",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 487,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 489,
+                  "name": "position",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 493,
+                      "name": "y",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 494,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 490,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 491,
+                      "name": "x",
+                      "value": "-1",
+                      "l": [
+                        {
+                          "id": 492,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                }
+              ],
+              "type": 10,
+              "ideaComparator": {
+                "order": true
+              }
+            }
+          ],
+          "type": 8,
+          "ideaComparator": {
+            "order": true
+          }
+        }
+      ],
+      "type": 0,
+      "ideaComparator": {
+        "order": true
+      }
+    },
+    {
+      "id": 539,
+      "name": "event_4",
+      "value": "",
+      "l": [
+        {
+          "id": 564,
+          "name": "{1}",
+          "value": "",
+          "l": [
+            {
+              "id": 608,
+              "name": "object_2",
+              "value": "",
+              "l": [
+                {
+                  "id": 609,
+                  "name": "category",
+                  "value": "Object",
+                  "l": [],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 610,
+                  "name": "color",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 611,
+                      "name": "B",
+                      "value": "255",
+                      "l": [
+                        {
+                          "id": 612,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 616,
+                      "name": "G",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 617,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 613,
+                      "name": "R",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 614,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 615,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 618,
+                  "name": "n_vertices",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 620,
+                      "name": "n_vertices",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 621,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 619,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 622,
+                  "name": "position",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 626,
+                      "name": "x",
+                      "value": "1",
+                      "l": [
+                        {
+                          "id": 627,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 623,
+                      "name": "y",
+                      "value": "1",
+                      "l": [
+                        {
+                          "id": 624,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 625,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                }
+              ],
+              "type": 10,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 566,
+              "name": "category",
+              "value": "TimeStep",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 567,
+              "name": "time",
+              "value": "1",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 565,
+              "name": "transition",
+              "value": "linear",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            }
+          ],
+          "type": 8,
+          "ideaComparator": {
+            "order": true
+          }
+        },
+        {
+          "id": 540,
+          "name": "{2}",
+          "value": "",
+          "l": [
+            {
+              "id": 628,
+              "name": "object_2",
+              "value": "",
+              "l": [
+                {
+                  "id": 629,
+                  "name": "category",
+                  "value": "Object",
+                  "l": [],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 630,
+                  "name": "color",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 637,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 631,
+                      "name": "B",
+                      "value": "255",
+                      "l": [
+                        {
+                          "id": 632,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 633,
+                      "name": "G",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 634,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 635,
+                      "name": "R",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 636,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 638,
+                  "name": "n_vertices",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 641,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 639,
+                      "name": "n_vertices",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 640,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 642,
+                  "name": "position",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 647,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 643,
+                      "name": "x",
+                      "value": "1",
+                      "l": [
+                        {
+                          "id": 644,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 645,
+                      "name": "y",
+                      "value": "2",
+                      "l": [
+                        {
+                          "id": 646,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                }
+              ],
+              "type": 10,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 541,
+              "name": "category",
+              "value": "TimeStep",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 542,
+              "name": "time",
+              "value": "2",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            }
+          ],
+          "type": 8,
+          "ideaComparator": {
+            "order": true
+          }
+        },
+        {
+          "id": 563,
+          "name": "category",
+          "value": "Event",
+          "l": [],
+          "type": 1,
+          "ideaComparator": {
+            "order": true
+          }
+        }
+      ],
+      "type": 0,
+      "ideaComparator": {
+        "order": true
+      }
+    },
+    {
+      "id": 697,
+      "name": "event_2",
+      "value": "",
+      "l": [
+        {
+          "id": 745,
+          "name": "category",
+          "value": "Event",
+          "l": [],
+          "type": 1,
+          "ideaComparator": {
+            "order": true
+          }
+        },
+        {
+          "id": 698,
+          "name": "{0}",
+          "value": "",
+          "l": [
+            {
+              "id": 719,
+              "name": "category",
+              "value": "TimeStep",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 721,
+              "name": "transition",
+              "value": "linear",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 699,
+              "name": "object_2",
+              "value": "",
+              "l": [
+                {
+                  "id": 700,
+                  "name": "category",
+                  "value": "Object",
+                  "l": [],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 701,
+                  "name": "color",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 708,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 702,
+                      "name": "B",
+                      "value": "255",
+                      "l": [
+                        {
+                          "id": 703,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 704,
+                      "name": "G",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 705,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 706,
+                      "name": "R",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 707,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 709,
+                  "name": "n_vertices",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 712,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 710,
+                      "name": "n_vertices",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 711,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 713,
+                  "name": "position",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 718,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 714,
+                      "name": "x",
+                      "value": "1",
+                      "l": [
+                        {
+                          "id": 715,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 716,
+                      "name": "y",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 717,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                }
+              ],
+              "type": 10,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 720,
+              "name": "time",
+              "value": "0",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            }
+          ],
+          "type": 8,
+          "ideaComparator": {
+            "order": true
+          }
+        },
+        {
+          "id": 722,
+          "name": "{1}",
+          "value": "",
+          "l": [
+            {
+              "id": 744,
+              "name": "time",
+              "value": "1",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 723,
+              "name": "object_2",
+              "value": "",
+              "l": [
+                {
+                  "id": 724,
+                  "name": "category",
+                  "value": "Object",
+                  "l": [],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 725,
+                  "name": "color",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 727,
+                      "name": "B",
+                      "value": "255",
+                      "l": [
+                        {
+                          "id": 728,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 731,
+                      "name": "R",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 732,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 726,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 729,
+                      "name": "G",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 730,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 733,
+                  "name": "n_vertices",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 735,
+                      "name": "n_vertices",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 736,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 734,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 737,
+                  "name": "position",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 741,
+                      "name": "y",
+                      "value": "1",
+                      "l": [
+                        {
+                          "id": 742,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 738,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 739,
+                      "name": "x",
+                      "value": "1",
+                      "l": [
+                        {
+                          "id": 740,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                }
+              ],
+              "type": 10,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 743,
+              "name": "category",
+              "value": "TimeStep",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            }
+          ],
+          "type": 8,
+          "ideaComparator": {
+            "order": true
+          }
+        }
+      ],
+      "type": 0,
+      "ideaComparator": {
+        "order": true
+      }
+    },
+    {
+      "id": 648,
+      "name": "event_3",
+      "value": "",
+      "l": [
+        {
+          "id": 673,
+          "name": "{1}",
+          "value": "",
+          "l": [
+            {
+              "id": 677,
+              "name": "object_1",
+              "value": "",
+              "l": [
+                {
+                  "id": 678,
+                  "name": "category",
+                  "value": "Object",
+                  "l": [],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 679,
+                  "name": "color",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 680,
+                      "name": "B",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 681,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 685,
+                      "name": "G",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 686,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 682,
+                      "name": "R",
+                      "value": "255",
+                      "l": [
+                        {
+                          "id": 683,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 684,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 687,
+                  "name": "n_vertices",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 689,
+                      "name": "n_vertices",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 690,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 688,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 691,
+                  "name": "position",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 695,
+                      "name": "x",
+                      "value": "-2",
+                      "l": [
+                        {
+                          "id": 696,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 692,
+                      "name": "y",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 693,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 694,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                }
+              ],
+              "type": 10,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 675,
+              "name": "category",
+              "value": "TimeStep",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 676,
+              "name": "time",
+              "value": "1",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 674,
+              "name": "transition",
+              "value": "linear",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            }
+          ],
+          "type": 8,
+          "ideaComparator": {
+            "order": true
+          }
+        },
+        {
+          "id": 649,
+          "name": "{2}",
+          "value": "",
+          "l": [
+            {
+              "id": 652,
+              "name": "object_1",
+              "value": "",
+              "l": [
+                {
+                  "id": 653,
+                  "name": "category",
+                  "value": "Object",
+                  "l": [],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 654,
+                  "name": "color",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 661,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 655,
+                      "name": "B",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 656,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 657,
+                      "name": "G",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 658,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 659,
+                      "name": "R",
+                      "value": "255",
+                      "l": [
+                        {
+                          "id": 660,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 662,
+                  "name": "n_vertices",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 665,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 663,
+                      "name": "n_vertices",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 664,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                },
+                {
+                  "id": 666,
+                  "name": "position",
+                  "value": "",
+                  "l": [
+                    {
+                      "id": 671,
+                      "name": "category",
+                      "value": "Property",
+                      "l": [],
+                      "type": 1,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 667,
+                      "name": "x",
+                      "value": "-3",
+                      "l": [
+                        {
+                          "id": 668,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    },
+                    {
+                      "id": 669,
+                      "name": "y",
+                      "value": "0",
+                      "l": [
+                        {
+                          "id": 670,
+                          "name": "category",
+                          "value": "QualityDimension",
+                          "l": [],
+                          "type": 1,
+                          "ideaComparator": {
+                            "order": true
+                          }
+                        }
+                      ],
+                      "type": 3,
+                      "ideaComparator": {
+                        "order": true
+                      }
+                    }
+                  ],
+                  "type": 1,
+                  "ideaComparator": {
+                    "order": true
+                  }
+                }
+              ],
+              "type": 10,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 650,
+              "name": "category",
+              "value": "TimeStep",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            },
+            {
+              "id": 651,
+              "name": "time",
+              "value": "2",
+              "l": [],
+              "type": 1,
+              "ideaComparator": {
+                "order": true
+              }
+            }
+          ],
+          "type": 8,
+          "ideaComparator": {
+            "order": true
+          }
+        },
+        {
+          "id": 672,
+          "name": "category",
+          "value": "Event",
+          "l": [],
+          "type": 1,
+          "ideaComparator": {
+            "order": true
+          }
+        }
+      ],
+      "type": 0,
+      "ideaComparator": {
+        "order": true
+      }
+    }
+  ],
+  "type": 0,
+  "ideaComparator": {
+    "order": true
+  }
+}
