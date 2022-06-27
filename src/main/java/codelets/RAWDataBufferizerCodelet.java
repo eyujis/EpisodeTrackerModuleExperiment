@@ -13,9 +13,13 @@ public class RAWDataBufferizerCodelet extends Codelet {
     private Memory rawDataMO;
     private int buffer_size = 5;
     private int frame_size = 0;
+    private double firstTimestamp;
+    private boolean firstCall = true;
+
     private List<Double> timestamp = new ArrayList<Double>();
     private List<Double> latitude = new ArrayList<Double>();
     private List<Double> longitude = new ArrayList<Double>();
+
 
     // idea_buffer contains "frames" that have an ArrayList of Ideas;
     private Idea idea_buffer = initializeBuffer(buffer_size);
@@ -91,8 +95,13 @@ public class RAWDataBufferizerCodelet extends Codelet {
             frames.get(i+1).get("latitude").setValue(ith_latitude);
             frames.get(i+1).get("longitude").setValue(ith_longitude);
         }
-
-        frames.get(0).get("timestamp").setValue(Double.valueOf(raw_data[0]));
+        if (firstCall)  {
+            frames.get(0).get("timestamp").setValue(Double.valueOf(0));
+            this.firstTimestamp = Double.valueOf(raw_data[0]);
+            firstCall = false;
+        }   else {
+            frames.get(0).get("timestamp").setValue((Double.valueOf(raw_data[0])-firstTimestamp)/1000);
+        }
         frames.get(0).get("latitude").setValue(Double.valueOf(raw_data[1]));
         frames.get(0).get("longitude").setValue(Double.valueOf(raw_data[2]));
 

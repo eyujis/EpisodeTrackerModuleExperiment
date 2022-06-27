@@ -79,11 +79,14 @@ public class PheromoneAlgorithm {
         for(int i=0; i<this.circleRegions.size(); i++)   {
             String name = circleRegions.get(i).getName();
             Idea circleRegionIdea = new Idea(name,"",0);
+            circleRegionIdea.add(circleRegions.get(i).getRegionCenterIdea());
             circleRegionsIdeaList.add(circleRegionIdea);
         }
 
         circleRegionsIdea.setValue(circleRegionsIdeaList);
 
+
         return circleRegionsIdea;
     }
+
 }

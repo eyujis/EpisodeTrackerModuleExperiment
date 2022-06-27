@@ -1,4 +1,6 @@
 package pheromone;
+import br.unicamp.cst.representation.wme.Idea;
+
 import java.util.ArrayList;
 import java.lang.Math;
 
@@ -82,5 +84,34 @@ public class CircleRegion {
 
         return distance;
     }
+
+    public Idea getRegionCenterIdea() {
+        ArrayList<Double> latitudeList = new ArrayList<Double> ();
+        ArrayList<Double> longitudeList = new ArrayList<Double> ();
+        Idea circleRegionsIdea = new Idea("regionCenter","",0);
+
+        for(int i=0; i<circles.size(); i++) {
+            latitudeList.add(circles.get(i).getX());
+            longitudeList.add(circles.get(i).getY());
+        }
+        double latitudeMean = listMean(latitudeList);
+        double longitudeMean = listMean(longitudeList);
+
+        circleRegionsIdea.add(new Idea("latitudeMean", latitudeMean));
+        circleRegionsIdea.add(new Idea("longitudeMean", longitudeMean));
+
+        return circleRegionsIdea;
+    }
+
+    public double listMean(ArrayList<Double> li) {
+        double sum=0;
+        for(int i=0; i<li.size(); i++)  {
+            sum = sum+li.get(i);
+        }
+        double average = sum/li.size();
+        return average;
+    }
+
+
 
 }
