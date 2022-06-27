@@ -8,11 +8,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
-
-
-
 public class RAWDataBufferizerCodelet extends Codelet {
-
     private Environment e;
     private Memory rawDataMO;
     private int buffer_size = 5;
@@ -32,7 +28,7 @@ public class RAWDataBufferizerCodelet extends Codelet {
 
     @Override
     public void accessMemoryObjects() {
-        rawDataMO=(MemoryObject)this.getOutput("RAWDATA");
+        rawDataMO=(MemoryObject)this.getOutput("RAW_DATA_BUFFER");
     }
 
     @Override
@@ -41,7 +37,7 @@ public class RAWDataBufferizerCodelet extends Codelet {
         // Get next line from the environment.
         // Each line corresponds to a frame.
         try {
-            raw_data = e.nextLine();
+            raw_data = e.step();
         } catch(IOException ex){
             System.out.println (ex.toString());
         }
@@ -54,7 +50,7 @@ public class RAWDataBufferizerCodelet extends Codelet {
 
             rawDataMO.setI((Idea) idea_buffer);
 
-////          Print that checks if buffer correctly shifts value positions
+//          Print that checks if buffer correctly shifts value positions
 //            for(int i=0; i<buffer_size; i++) {
 //                System.out.println(((List<Idea>) ((Idea) rawDataMO.getI()).get("frames").getValue()).get(i).toStringFull());
 //            }
@@ -99,7 +95,6 @@ public class RAWDataBufferizerCodelet extends Codelet {
         frames.get(0).get("timestamp").setValue(Double.valueOf(raw_data[0]));
         frames.get(0).get("latitude").setValue(Double.valueOf(raw_data[1]));
         frames.get(0).get("longitude").setValue(Double.valueOf(raw_data[2]));
-
 
     }
 

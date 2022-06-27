@@ -14,7 +14,7 @@ public class ExperimentMain {
 		Logger.getLogger("codelets").setLevel(Level.SEVERE);
 
 		// Create Environment
-		Environment env=new Environment();
+		Environment env = new Environment();
 
 		// Creates the Agent Mind and start it
 		AgentMind a = new AgentMind(env);
@@ -23,7 +23,7 @@ public class ExperimentMain {
 
 
 	public static void main(String[] args) throws IOException {
-		ExperimentMain em = new ExperimentMain();
+		ExperimentMain edm = new ExperimentMain();
 	}
 
 }
