@@ -14,7 +14,7 @@ public class PropertyCategoryLearnerCodelet extends Codelet {
     double decayRate = 0.8;
     double relevanceThreshold = 3.5;
     double relevanceMinimum = 1.0;
-    int updateRate = 10;
+    int updateRate = 50;
     int ithUpdate = 0;
 
     PheromoneAlgorithm pheromoneAlgorithm = new PheromoneAlgorithm(circleRadiusKm, decayRate, relevanceThreshold, relevanceMinimum);
