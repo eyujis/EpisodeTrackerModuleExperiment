@@ -19,14 +19,21 @@ public class AgentMind extends Mind {
     Memory objectsBufferMO;
     Memory propertyCategoriesMO;
 
+    createMemoryGroup("EpisodeTrackerMemoryGroup");
+    createCodeletGroup("EpisodeTrackerCodeletGroup");
+
+
     // Initialize Memory Objects
     rawDataBufferMO = createMemoryObject("RAW_DATA_BUFFER", "");
     detectedObjectsMO = createMemoryObject("DETECTED_OBJECTS", "");
     objectsBufferMO = createMemoryObject("OBJECTS_BUFFER", "");
     propertyCategoriesMO = createMemoryObject("PROPERTY_CATEGORIES", "");
-//    categoriesMO = createMemoryObject("CATEGORIES", "");
-//    eventsMC = createMemoryContainer("EVENTS");
-//    eventsBufferMO = createMemoryObject("EVENTS BUFFER", "");
+
+    registerMemory(rawDataBufferMO, "EpisodeTrackerMemoryGroup");
+    registerMemory(detectedObjectsMO, "EpisodeTrackerMemoryGroup");
+    registerMemory(objectsBufferMO, "EpisodeTrackerMemoryGroup");
+    registerMemory(propertyCategoriesMO, "EpisodeTrackerMemoryGroup");
+
 
     // Create Codelets
     Codelet rawDataBufferizerCodelet = new RAWDataBufferizerCodelet(env);
@@ -48,6 +55,10 @@ public class AgentMind extends Mind {
     propertyCategoryLearnerCodelet.addOutput(propertyCategoriesMO);
     insertCodelet(propertyCategoryLearnerCodelet);
 
+    registerCodelet(rawDataBufferizerCodelet, "EpisodeTrackerCodeletGroup");
+    registerCodelet(objectProposerCodelet, "EpisodeTrackerCodeletGroup");
+    registerCodelet(objectBufferizerCodelet, "EpisodeTrackerCodeletGroup");
+    registerCodelet(propertyCategoryLearnerCodelet, "EpisodeTrackerCodeletGroup");
 
 
 
@@ -68,7 +79,7 @@ public class AgentMind extends Mind {
 
     // Sets a time step for running the codelets to avoid heating too much your machine
     for (Codelet c : this.getCodeRack().getAllCodelets())
-        c.setTimeStep(1);
+        c.setTimeStep(10);
 
     // Start Cognitive Cycle
     start();

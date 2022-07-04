@@ -2,7 +2,7 @@ package codelets;
 import br.unicamp.cst.core.entities.Codelet;
 import br.unicamp.cst.core.entities.Memory;
 import br.unicamp.cst.core.entities.MemoryObject;
-import br.unicamp.cst.representation.wme.Idea;
+import br.unicamp.cst.representation.idea.Idea;
 import pheromone.PheromoneAlgorithm;
 
 import java.util.ArrayList;
@@ -16,8 +16,13 @@ public class PropertyCategoryLearnerCodelet extends Codelet {
     double relevanceMinimum = 1.0;
     int updateRate = 50;
     int ithUpdate = 0;
+    double circleRadiusLongTermKm = 10 * Math.pow(10,-3);
 
-    PheromoneAlgorithm pheromoneAlgorithm = new PheromoneAlgorithm(circleRadiusKm, decayRate, relevanceThreshold, relevanceMinimum);
+    PheromoneAlgorithm pheromoneAlgorithm = new PheromoneAlgorithm(circleRadiusKm,
+                                                                   decayRate,
+                                                                   relevanceThreshold,
+                                                                   relevanceMinimum,
+                                                                   circleRadiusLongTermKm);
 
     @Override
     public void accessMemoryObjects() {
@@ -40,12 +45,18 @@ public class PropertyCategoryLearnerCodelet extends Codelet {
                 double time = (double) detectedObjectsIdea.get("object.time").getValue();
 
                 pheromoneAlgorithm.updateRegions(latitude, longitude);
+                pheromoneAlgorithm.updateLongTermRegions(latitude, longitude);
 
                 // Print for testing
                 System.out.println("=============" + time + "===============");
-                ArrayList<Idea> circleRegionsIdeaList = (ArrayList<Idea>) pheromoneAlgorithm.getCircleRegionsAsIdea().getValue();
-                for(int i=0; i<circleRegionsIdeaList.size(); i++)   {
-                    System.out.println(circleRegionsIdeaList.get(i).toStringFull());
+//                ArrayList<Idea> circleRegionsIdeaList = (ArrayList<Idea>) pheromoneAlgorithm.getCircleRegionsAsIdea().getValue();
+//                for(int i=0; i<circleRegionsIdeaList.size(); i++)   {
+//                    System.out.println(circleRegionsIdeaList.get(i).toStringFull());
+//                }
+
+                ArrayList<Idea> circleLongTermRegionsIdeaList = (ArrayList<Idea>) pheromoneAlgorithm.getLongTermCircleRegionsAsIdea().getValue();
+                for(int i=0; i<circleLongTermRegionsIdeaList.size(); i++)   {
+                    System.out.println(circleLongTermRegionsIdeaList.get(i).toStringFull());
                 }
             }
             ithUpdate = ithUpdate + 1;

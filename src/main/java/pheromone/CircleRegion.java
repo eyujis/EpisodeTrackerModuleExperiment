@@ -1,5 +1,5 @@
 package pheromone;
-import br.unicamp.cst.representation.wme.Idea;
+import br.unicamp.cst.representation.idea.Idea;
 
 import java.util.ArrayList;
 import java.lang.Math;

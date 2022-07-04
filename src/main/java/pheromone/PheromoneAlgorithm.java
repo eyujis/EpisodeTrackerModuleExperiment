@@ -1,6 +1,6 @@
 package pheromone;
 
-import br.unicamp.cst.representation.wme.Idea;
+import br.unicamp.cst.representation.idea.Idea;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -12,13 +12,23 @@ public class PheromoneAlgorithm {
     private double relevanceThreshold;
     private double relevanceMinimum;
     private int nthRegion = 0;
+    private int nthRegionLongTerm = 0;
 
 
-    public PheromoneAlgorithm(double circleRadius, double decayRate, double relevanceThreshold, double relevanceMinimum) {
+    private ArrayList<CircleRegion> circleRegionsLongTerm = new ArrayList<CircleRegion>();
+    private double circleRadiusLongTerm;
+
+
+    public PheromoneAlgorithm(double circleRadius,
+                              double decayRate,
+                              double relevanceThreshold,
+                              double relevanceMinimum,
+                              double circleRadiusLongTerm) {
         this.circleRadius = circleRadius;
         this.decayRate = decayRate;
         this.relevanceThreshold = relevanceThreshold;
         this.relevanceMinimum = relevanceMinimum;
+        this.circleRadiusLongTerm = circleRadiusLongTerm;
     }
 
     public synchronized void updateRegions(double x, double y) {
@@ -42,7 +52,30 @@ public class PheromoneAlgorithm {
         }
 
         decayRegionsRelevance();
+
     }
+
+//    TODO | This second layer of the algorithm has not been validated yet. 
+    public synchronized void updateLongTermRegions(double x, double y) {
+        boolean intersected = false;
+        Circle circle = new Circle(x, y, this.circleRadiusLongTerm);
+        for (int i=0; i<this.circleRegionsLongTerm.size() && intersected == false; i++)  {
+            CircleRegion circleRegion = this.circleRegionsLongTerm.get(i);
+            if(circleRegion.doesCircleIntersectRegion(circle))   {
+                circleRegion.addCircleToRegion(circle);
+                circleRegion.increaseRelevance();
+                intersected = true;
+            }
+        }
+
+        if (intersected==false) {
+            CircleRegion newCircleRegion = new CircleRegion(circle, this.nthRegionLongTerm);
+            this.circleRegionsLongTerm.add(newCircleRegion);
+            this.nthRegionLongTerm = this.nthRegionLongTerm+1;
+        }
+
+    }
+
 
     public void removeRegionsBelowRelevanceMinimum()    {
         ArrayList<Integer> removeRegionIdxList =  new ArrayList<Integer>();
@@ -87,6 +120,23 @@ public class PheromoneAlgorithm {
 
 
         return circleRegionsIdea;
+    }
+
+    public Idea getLongTermCircleRegionsAsIdea() {
+        Idea circleLongTermRegionsIdea = new Idea("circleLongTermRegions","",0);
+        ArrayList<Idea> circleRegionsLongTermIdeaList = new ArrayList<Idea>();
+
+        for(int i=0; i<this.circleRegionsLongTerm.size(); i++)   {
+            String name = circleRegionsLongTerm.get(i).getName();
+            Idea circleRegionIdea = new Idea(name,"",0);
+            circleRegionIdea.add(circleRegionsLongTerm.get(i).getRegionCenterIdea());
+            circleRegionsLongTermIdeaList.add(circleRegionIdea);
+        }
+
+        circleLongTermRegionsIdea.setValue(circleRegionsLongTermIdeaList);
+
+
+        return circleLongTermRegionsIdea;
     }
 
 }

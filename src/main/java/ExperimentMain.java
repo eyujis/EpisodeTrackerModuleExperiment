@@ -1,6 +1,9 @@
 import java.io.IOException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import br.unicamp.cst.io.rest.RESTServer;
 import environment.Environment;
 
 
@@ -17,7 +20,12 @@ public class ExperimentMain {
 		Environment env = new Environment();
 
 		// Creates the Agent Mind and start it
-		AgentMind a = new AgentMind(env);
+		AgentMind mind = new AgentMind(env);
+
+		int port = 4000;
+		String GET_URL = "http://localhost:"+port;
+		RESTServer rs = new RESTServer(mind,port,true);
+
             
         }
 

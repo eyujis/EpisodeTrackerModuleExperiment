@@ -6,8 +6,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class Environment {
-    // Opens the csv file from sub_1.csv for reading.
+    // Verified
     BufferedReader csvReader = new BufferedReader(new FileReader("src/main/dataset/almoco.csv"));
+    // Verified
+//    BufferedReader csvReader = new BufferedReader(new FileReader("src/main/dataset/palestra.csv"));
+    //
+//    BufferedReader csvReader = new BufferedReader(new FileReader("src/main/dataset/museu.csv"));
 
     public Environment() throws IOException {
         // Avoids the first line with the column's labels.

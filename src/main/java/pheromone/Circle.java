@@ -7,7 +7,6 @@ public class Circle {
 
     public Circle(double x, double y, double r) {
         this.x = x;
-
         this.y = y;
         this.radius = r;
     }
