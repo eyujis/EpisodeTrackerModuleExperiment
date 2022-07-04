@@ -22,6 +22,7 @@ public class ExperimentMain {
 		// Creates the Agent Mind and start it
 		AgentMind mind = new AgentMind(env);
 
+		// Creates RESTServer for visualization
 		int port = 4000;
 		String GET_URL = "http://localhost:"+port;
 		RESTServer rs = new RESTServer(mind,port,true);
