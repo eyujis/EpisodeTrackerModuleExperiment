@@ -67,6 +67,34 @@ public class CircleRegion {
         }
     }
 
+    public boolean doesPositionIntersectRegion(Position position)  {
+        for(int i=0; i<this.circles.size(); i++) {
+            if (doesPositionIntersectCircle(position, this.circles.get(i)))   {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean doesPositionIntersectCircle(Position position, Circle circle) {
+        double x1 = position.getX();
+        double y1 = position.getY();
+
+        double x2 = circle.getX();
+        double y2 = circle.getY();
+        double r2 = circle.getRadius();
+
+        double center_distance = calculateDistance(x1, y1, x2, y2);
+
+        double radius_sum = r2;
+
+        if (center_distance <= radius_sum)  {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public Double calculateDistance(double p1Lat, double p1Lon, double p2Lat, double p2Lon) {
         Double R = 6371.0;
         Double distance;
@@ -110,6 +138,10 @@ public class CircleRegion {
         }
         double average = sum/li.size();
         return average;
+    }
+
+    public ArrayList<Circle> getCircles()  {
+        return this.circles;
     }
 
 

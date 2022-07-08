@@ -13,8 +13,6 @@ public class PheromoneAlgorithm {
     private double relevanceMinimum;
     private int nthRegion = 0;
     private int nthRegionLongTerm = 0;
-
-
     private ArrayList<CircleRegion> circleRegionsLongTerm = new ArrayList<CircleRegion>();
     private double circleRadiusLongTerm;
 
@@ -105,6 +103,18 @@ public class PheromoneAlgorithm {
         }
     }
 
+    public ArrayList<CircleRegionPropertyCategory> getPropertyCategories() {
+        ArrayList<CircleRegionPropertyCategory> propertyCategories = new ArrayList<CircleRegionPropertyCategory>();
+        for (int i=0; i<circleRegions.size(); i++)  {
+            if(circleRegions.get(i).getRelevance()>this.relevanceThreshold) {
+                CircleRegionPropertyCategory propertyCategory = new CircleRegionPropertyCategory(circleRegions.get(i));
+                propertyCategories.add(propertyCategory);
+            }
+        }
+        return propertyCategories;
+    }
+
+
     public Idea getCircleRegionsAsIdea() {
         Idea circleRegionsIdea = new Idea("circleRegions","",0);
         ArrayList<Idea> circleRegionsIdeaList = new ArrayList<Idea>();
@@ -121,7 +131,6 @@ public class PheromoneAlgorithm {
 
         return circleRegionsIdea;
     }
-
     public Idea getLongTermCircleRegionsAsIdea() {
         Idea circleLongTermRegionsIdea = new Idea("circleLongTermRegions","",0);
         ArrayList<Idea> circleRegionsLongTermIdeaList = new ArrayList<Idea>();

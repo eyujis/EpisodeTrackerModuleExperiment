@@ -14,7 +14,7 @@ public class ObjectBufferizerCodelet extends Codelet {
     private Memory detectedObjectsMO;
     private Memory objectBufferMO;
 
-    private int buffer_size = 5;
+    private int buffer_size = 250;
 
     private Idea objectsBufferIdea = initializeBuffer(buffer_size);
 
@@ -40,6 +40,7 @@ public class ObjectBufferizerCodelet extends Codelet {
 //          Print that checks if buffer correctly shifts value positions
 //            for(int i=0; i<buffer_size; i++) {
 //                System.out.println(((List<Idea>) ((Idea) objectBufferMO.getI()).get("timeSteps").getValue()).get(i).toStringFull());
+//                System.out.println(((List<Idea>) ((Idea) objectBufferMO.getI()).get("timeSteps").getValue()).get(i).get("latitude").getValue());
 //            }
 //            System.out.println("-------------------");
 
