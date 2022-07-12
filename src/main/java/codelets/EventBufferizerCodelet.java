@@ -15,7 +15,7 @@ import java.util.List;
 public class EventBufferizerCodelet extends Codelet {
 
     private Environment e;
-    private Memory eventsMC;
+    private Memory eventsMO;
     private Memory eventsBufferMO;
     private int buffer_size = 5;
     private int frame_size = 0;
@@ -30,15 +30,16 @@ public class EventBufferizerCodelet extends Codelet {
 
     @Override
     public void accessMemoryObjects() {
-        eventsMC=(MemoryContainer)this.getInput("EVENTS");
-        eventsBufferMO=(MemoryObject)this.getOutput("EVENTS BUFFER");
+        this.eventsMO=(MemoryObject)this.getInput("EVENTS");
+        this.eventsBufferMO=(MemoryObject)this.getOutput("EVENTS_BUFFER");
     }
 
     @Override
     public void proc() {
-        if (eventsMC.getI()=="")    {
+        if (this.eventsMO.getI()=="")    {
             return;
         }
+        System.out.println("here");
 
 //        Idea eventFrame = (Idea) eventsMC.getI();
 //        List<Idea> eventFrames = (List<Idea>) eventsBuffer.get("frames").getValue();

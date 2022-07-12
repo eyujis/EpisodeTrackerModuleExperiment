@@ -15,8 +15,9 @@ public class AgentMind extends Mind {
     Memory detectedObjectsMO;
     Memory objectsBufferMO;
     Memory propertyCategoriesMO;
-    MemoryContainer eventsMC;
-    Memory eventsBuffer;
+    Memory eventsMO;
+//    MemoryContainer eventsMC;
+    Memory eventsBufferMO;
 
 //    createMemoryGroup("EpisodeTrackerMemoryGroup");
 //    createCodeletGroup("EpisodeTrackerCodeletGroup");
@@ -27,8 +28,8 @@ public class AgentMind extends Mind {
     detectedObjectsMO = createMemoryObject("DETECTED_OBJECTS", "");
     objectsBufferMO = createMemoryObject("OBJECTS_BUFFER", "");
     propertyCategoriesMO = createMemoryObject("PROPERTY_CATEGORIES", "");
-    eventsMC = createMemoryContainer("EVENTS");
-    eventsBuffer = createMemoryObject("EVENTS_BUFFER");
+    eventsMO = createMemoryObject("EVENTS", "");
+    eventsBufferMO = createMemoryObject("EVENTS_BUFFER");
 
 //    registerMemory(rawDataBufferMO, "EpisodeTrackerMemoryGroup");
 //    registerMemory(detectedObjectsMO, "EpisodeTrackerMemoryGroup");
@@ -63,13 +64,17 @@ public class AgentMind extends Mind {
 
     CodeletContainer EventTrackerCodeletContainer = new CodeletContainer();
 
-    Codelet eventCategoryLearner = new EventCategoryLearnerCodelet(this, objectsBufferMO, eventsMC);
+    Codelet eventCategoryLearner = new EventCategoryLearnerCodelet(this, objectsBufferMO, eventsMO);
     eventCategoryLearner.addInput(propertyCategoriesMO);
     eventCategoryLearner.setName("EventCategoryLearner");
     insertCodelet(eventCategoryLearner);
 
     Codelet eventBufferizerCodelet = new EventBufferizerCodelet();
+    eventBufferizerCodelet.addInput(eventsMO);
+    eventBufferizerCodelet.addOutput(eventsBufferMO);
     eventBufferizerCodelet.setIsMemoryObserver(true);
+    eventsMO.addMemoryObserver(eventBufferizerCodelet);
+    insertCodelet(eventBufferizerCodelet);
 
 
 //

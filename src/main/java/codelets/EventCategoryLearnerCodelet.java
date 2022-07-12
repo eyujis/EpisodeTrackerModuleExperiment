@@ -15,7 +15,7 @@ public class EventCategoryLearnerCodelet extends Codelet {
     // Used a Codelet ArrayList instead;
     //    CodeletContainer codeletContainer;
     ArrayList<Codelet> codeletContainer = new ArrayList<Codelet>();
-    public EventCategoryLearnerCodelet(Mind mind, Memory objectsBufferMO, MemoryContainer eventsMC)   {
+    public EventCategoryLearnerCodelet(Mind mind, Memory objectsBufferMO, Memory eventsMC)   {
         this.mind = mind;
         this.objectsBufferMO = objectsBufferMO;
         this.eventsMC = eventsMC;
