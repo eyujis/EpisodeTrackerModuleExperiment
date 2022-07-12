@@ -39,7 +39,7 @@ public class EventCategoryLearnerCodelet extends Codelet {
 
         updateEventTrackers(propertyCategories);
 
-        System.out.println(this.eventsMC.getI());
+//        System.out.println(this.eventsMC.getI());
 
     }
 
@@ -93,18 +93,6 @@ public class EventCategoryLearnerCodelet extends Codelet {
         }
     }
 
-    public boolean isPropertyCategoriesInCodeletContainer(PropertyCategory propertyCategory)    {
-        for (int i=0; i<this.codeletContainer.size(); i++)   {
-            Codelet ithCodelet = this.codeletContainer.get(i);
-            String ithCodeletName = ithCodelet.getName();
-            String propertyCategoryName = propertyCategory.getName();
-
-            if(ithCodeletName.startsWith(propertyCategoryName)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public void addEventStayTrackerCodelet(PropertyCategory propertyCategory)  {
         EventStayCategoryCodelet eventStayCategoryCodelet = new EventStayCategoryCodelet(propertyCategory);

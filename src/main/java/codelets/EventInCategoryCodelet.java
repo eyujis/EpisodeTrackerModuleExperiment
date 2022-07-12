@@ -17,42 +17,23 @@ public class EventInCategoryCodelet extends EventTrackerPropertyCategoryCodelet 
     }
 
     @Override
-    public boolean eventTracked() {
-        if(this.propertyCategory.belongsToCategory(getInitialPosition()) == false &&
-           this.propertyCategory.belongsToCategory(getFinalPosition()) == true) {
+    public boolean eventTracked(Idea objectInitialState, Idea objectFinalState) {
+        Position initialPosition = getPositionFromObject(objectInitialState);
+        Position finalPosition = getPositionFromObject(objectFinalState);
+        if(this.propertyCategory.belongsToCategory(initialPosition) == false &&
+           this.propertyCategory.belongsToCategory(finalPosition) == true) {
             return true;
         }
         return false;
 
     }
 
-    public Position getInitialPosition() {
-        List<Idea> stateIdeaList = (List<Idea>) ((Idea) this.objectsBufferMO.getI()).get("timeSteps").getValue();
-        int initialPositionIdx = stateIdeaList.size()-1;
-
-        Position initialPosition = getNthPosition(initialPositionIdx);
-
-        return initialPosition;
+    public Position getPositionFromObject(Idea objectIdea) {
+        double latitude = (double) objectIdea.get("latitude").getValue();
+        double longitude = (double) objectIdea.get("longitude").getValue();
+        Position position = new Position(latitude, longitude);
+        return position;
     }
 
-    public Position getFinalPosition() {
-        int finalPositionIdx = 0;
 
-        Position finalPosition = getNthPosition(finalPositionIdx);
-
-        return finalPosition;
-    }
-
-    public Position getNthPosition(int nthPositionIdx) {
-        List<Idea> stateIdeaList = (List<Idea>) ((Idea) this.objectsBufferMO.getI()).get("timeSteps").getValue();
-        Idea initialStateIdea = (Idea) stateIdeaList.get(nthPositionIdx);
-
-        double nthLatitude = (double) initialStateIdea.get("latitude").getValue();
-        double nthLongitude = (double) initialStateIdea.get("longitude").getValue();
-
-        Position nthPosition = new Position(nthLatitude, nthLongitude);
-
-        return nthPosition;
-
-    }
 }

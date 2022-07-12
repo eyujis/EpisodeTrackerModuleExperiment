@@ -40,7 +40,6 @@ public class ObjectBufferizerCodelet extends Codelet {
 //          Print that checks if buffer correctly shifts value positions
 //            for(int i=0; i<buffer_size; i++) {
 //                System.out.println(((List<Idea>) ((Idea) objectBufferMO.getI()).get("timeSteps").getValue()).get(i).toStringFull());
-//                System.out.println(((List<Idea>) ((Idea) objectBufferMO.getI()).get("timeSteps").getValue()).get(i).get("latitude").getValue());
 //            }
 //            System.out.println("-------------------");
 
@@ -55,9 +54,11 @@ public class ObjectBufferizerCodelet extends Codelet {
         List<Idea> timeSteps = new ArrayList<Idea>();
         for(int i=0; i<buffer_size; i++)    {
             Idea timeStep = new Idea("timeStep","",0);
-            timeStep.add(new Idea("time",null));
-            timeStep.add(new Idea("latitude", null));
-            timeStep.add(new Idea("longitude", null));
+            Idea object = new Idea("object", "", 0);
+            object.add(new Idea("time",null));
+            object.add(new Idea("latitude", null));
+            object.add(new Idea("longitude", null));
+            timeStep.add(object);
             timeSteps.add(timeStep);
         }
         objectsBufferIdea.add(new Idea("timeSteps",timeSteps));
@@ -70,22 +71,22 @@ public class ObjectBufferizerCodelet extends Codelet {
         // shift right position from frames i=buffer_size-1 to i=0
         for(int i=buffer_size-2; i>=0; i--)    {
             // get ith values
-            Double ith_timestamp = (Double) objectsBufferIdeaList.get(i).get("time").getValue();
-            Double ith_latitude = (Double) objectsBufferIdeaList.get(i).get("latitude").getValue();
-            Double ith_longitude = (Double) objectsBufferIdeaList.get(i).get("longitude").getValue();
+            Double ith_timestamp = (Double) objectsBufferIdeaList.get(i).get("object.time").getValue();
+            Double ith_latitude = (Double) objectsBufferIdeaList.get(i).get("object.latitude").getValue();
+            Double ith_longitude = (Double) objectsBufferIdeaList.get(i).get("object.longitude").getValue();
             // set i+1th values
-            objectsBufferIdeaList.get(i+1).get("time").setValue(ith_timestamp);
-            objectsBufferIdeaList.get(i+1).get("latitude").setValue(ith_latitude);
-            objectsBufferIdeaList.get(i+1).get("longitude").setValue(ith_longitude);
+            objectsBufferIdeaList.get(i+1).get("object.time").setValue(ith_timestamp);
+            objectsBufferIdeaList.get(i+1).get("object.latitude").setValue(ith_latitude);
+            objectsBufferIdeaList.get(i+1).get("object.longitude").setValue(ith_longitude);
         }
 
         Double time = (Double) detectedObjectIdea.get("time").getValue();
         Double latitude = (Double) detectedObjectIdea.get("latitude").getValue();
         Double longitude = (Double) detectedObjectIdea.get("longitude").getValue();
 
-        objectsBufferIdeaList.get(0).get("time").setValue(time);
-        objectsBufferIdeaList.get(0).get("latitude").setValue(latitude);
-        objectsBufferIdeaList.get(0).get("longitude").setValue(longitude);
+        objectsBufferIdeaList.get(0).get("object.time").setValue(time);
+        objectsBufferIdeaList.get(0).get("object.latitude").setValue(latitude);
+        objectsBufferIdeaList.get(0).get("object.longitude").setValue(longitude);
 
     }
 

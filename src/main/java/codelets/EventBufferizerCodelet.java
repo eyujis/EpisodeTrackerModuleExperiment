@@ -40,21 +40,21 @@ public class EventBufferizerCodelet extends Codelet {
             return;
         }
 
-        Idea eventFrame = (Idea) eventsMC.getI();
-        List<Idea> eventFrames = (List<Idea>) eventsBuffer.get("frames").getValue();
-        addFrame(eventFrames, eventFrame, buffer_size);
-        eventsBufferMO.setI((Idea) eventsBuffer);
+//        Idea eventFrame = (Idea) eventsMC.getI();
+//        List<Idea> eventFrames = (List<Idea>) eventsBuffer.get("frames").getValue();
+//        addFrame(eventFrames, eventFrame, buffer_size);
+//        eventsBufferMO.setI((Idea) eventsBuffer);
 
 //          Print that checks if buffer correctly shifts value positions
-        for(int i=0; i<buffer_size; i++) {
-            List<Idea> testIdeaList = (List<Idea>) ((Idea) eventsBufferMO.getI()).get("frames").getValue();
-            Idea testFrame = testIdeaList.get(i);
-            Idea frameValue = (Idea) testFrame.getValue();
-            if(frameValue != null)
-                System.out.println(frameValue.getValue());
-
-        }
-        System.out.println("-------------------");
+//        for(int i=0; i<buffer_size; i++) {
+//            List<Idea> testIdeaList = (List<Idea>) ((Idea) eventsBufferMO.getI()).get("frames").getValue();
+//            Idea testFrame = testIdeaList.get(i);
+//            Idea frameValue = (Idea) testFrame.getValue();
+//            if(frameValue != null)
+//                System.out.println(frameValue.getValue());
+//
+//        }
+//        System.out.println("-------------------");
 
     }
 

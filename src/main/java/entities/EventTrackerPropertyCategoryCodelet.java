@@ -4,6 +4,10 @@ import br.unicamp.cst.core.entities.Codelet;
 import br.unicamp.cst.core.entities.Memory;
 import br.unicamp.cst.core.entities.MemoryContainer;
 import br.unicamp.cst.core.entities.MemoryObject;
+import br.unicamp.cst.representation.idea.Idea;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
 
@@ -11,6 +15,11 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
 
     public Memory objectsBufferMO;
     public Memory eventsMC;
+    public double initialTime;
+    public double finalTime;
+    private List<Idea> objectsBufferIdeaList;
+    private Idea objectInitialState;
+    private Idea objectFinalState;
 
     public EventTrackerPropertyCategoryCodelet()    {
         this.propertyCategory = propertyCategory;
@@ -18,8 +27,8 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
 
     @Override
     public void accessMemoryObjects() {
-        objectsBufferMO=(MemoryObject)this.getInput("OBJECTS_BUFFER");
-        eventsMC=(MemoryContainer)this.getOutput("EVENTS");
+        this.objectsBufferMO=(MemoryObject)this.getInput("OBJECTS_BUFFER");
+        this.eventsMC=(MemoryContainer)this.getOutput("EVENTS");
     }
 
     @Override
@@ -29,12 +38,54 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
 
     @Override
     public void proc() {
-        if(eventTracked())  {
-            eventsMC.setI(this.getName() + ": Tracked");
+        if  (this.objectsBufferMO.getI()=="")   {
+            return;
         }
+        this.objectsBufferIdeaList = (List<Idea>) ((Idea) this.objectsBufferMO.getI()).get("timeSteps").getValue();
+        updateObjectInitialState();
+        updateObjectFinalState();
+        this.initialTime = getObjectTime(this.objectInitialState);
+        this.finalTime = getObjectTime(this.objectFinalState);
 
+        if(eventTracked(this.objectInitialState, this.objectFinalState))  {
+            this.eventsMC.setI(this.buildEventIdea());
+
+            System.out.println("---------------");
+            System.out.println(((Idea) this.eventsMC.getI()).toStringFull());
+            System.out.println(((List<Idea>) ((Idea) this.eventsMC.getI()).get("timeSteps").getValue()).get(0).toStringFull());
+            System.out.println(((List<Idea>) ((Idea) this.eventsMC.getI()).get("timeSteps").getValue()).get(1).toStringFull());
+            System.out.println("---------------");
+        }
     }
 
-    public abstract boolean eventTracked();
+    public abstract boolean eventTracked(Idea objectInitialState, Idea objectFinalState);
+
+    public void updateObjectInitialState() {
+        int initialStateIdx = this.objectsBufferIdeaList.size()-1;
+        Idea objectInitialState = this.objectsBufferIdeaList.get(initialStateIdx);
+        this.objectInitialState = objectInitialState.get("object");
+    }
+    public void updateObjectFinalState() {
+        int finalStateIdx = 0;
+        Idea objectFinalState = this.objectsBufferIdeaList.get(finalStateIdx);
+        this.objectFinalState = objectFinalState.get("object");
+    }
+
+    public double getObjectTime(Idea objectState)    {
+        double time = (double) objectState.get("time").getValue();
+        return time;
+    }
+
+
+    public Idea buildEventIdea()   {
+        Idea event = new Idea(this.getName(), "", 0);
+        List<Idea> timeSteps = new ArrayList<Idea>();
+        timeSteps.add(this.objectInitialState);
+        timeSteps.add(this.objectFinalState);
+        event.add(new Idea("timeSteps",timeSteps));
+        return event;
+    }
+
+
 
 }
