@@ -18,13 +18,10 @@ public class EventBufferizerCodelet extends Codelet {
     private Memory eventsMO;
     private Memory eventsBufferMO;
     private int buffer_size = 5;
-    private int frame_size = 0;
     private List<Double> timestamp = new ArrayList<Double>();
     private List<Double> latitude = new ArrayList<Double>();
     private List<Double> longitude = new ArrayList<Double>();
-
-    // idea_buffer contains "frames" that have an ArrayList of Ideas;
-    private Idea eventsBuffer = initializeBuffer(buffer_size);
+    private Idea eventsBuffer = initializeBuffer();
 
 
 
@@ -39,23 +36,14 @@ public class EventBufferizerCodelet extends Codelet {
         if (this.eventsMO.getI()=="")    {
             return;
         }
-        System.out.println("here");
 
-//        Idea eventFrame = (Idea) eventsMC.getI();
-//        List<Idea> eventFrames = (List<Idea>) eventsBuffer.get("frames").getValue();
-//        addFrame(eventFrames, eventFrame, buffer_size);
-//        eventsBufferMO.setI((Idea) eventsBuffer);
+        Idea eventFrame = (Idea) eventsMO.getI();
+        List<Idea> eventFrames = (List<Idea>) ((Idea) this.eventsBuffer).getValue();
+        addFrame(eventFrames, eventFrame);
+        eventsBufferMO.setI((Idea) eventsBuffer);
 
 //          Print that checks if buffer correctly shifts value positions
-//        for(int i=0; i<buffer_size; i++) {
-//            List<Idea> testIdeaList = (List<Idea>) ((Idea) eventsBufferMO.getI()).get("frames").getValue();
-//            Idea testFrame = testIdeaList.get(i);
-//            Idea frameValue = (Idea) testFrame.getValue();
-//            if(frameValue != null)
-//                System.out.println(frameValue.getValue());
-//
-//        }
-//        System.out.println("-------------------");
+        System.out.println(((Idea) eventsBufferMO.getI()).getValue());
 
     }
 
@@ -64,31 +52,20 @@ public class EventBufferizerCodelet extends Codelet {
 
     }
 
-    public Idea initializeBuffer(int buffer_size) {
-        Idea eventBuffer = new Idea("buffer","",0);
-        List<Idea> frames = new ArrayList<Idea>();
-        for(int i=0; i<buffer_size; i++)    {
-            Idea frame = new Idea("frame", new Idea("event", ""),0);
-            frames.add(frame);
-        }
-        eventBuffer.add(new Idea("frames",frames));
-        eventBuffer.add(new Idea("buffer_size", buffer_size));
-        return eventBuffer;
-
+    public Idea initializeBuffer() {
+        Idea eventsBuffer = new Idea("eventsBuffer","",0);
+        List<Idea> events = new ArrayList<Idea>();
+        eventsBuffer.setValue(events);
+        return eventsBuffer;
     }
 
-    private void addFrame(List<Idea> frames, Idea frame, int buffer_size) {
-
-        // shift right position from frames i=buffer_size-1 to i=0
-        for(int i=buffer_size-2; i>=0; i--)    {
-            // get ith values
-            Idea ith_event = (Idea) ((Idea) frames.get(i)).getValue();
-
-            // set i+1th values
-            ((Idea)frames.get(i+1)).setValue(ith_event);
+    private void addFrame(List<Idea> events, Idea event) {
+        if (events.size()<this.buffer_size) {
+            events.add(event);
+        } else {
+            events.remove(0);
+            events.add(event);
         }
-
-        ((Idea) frames.get(0)).setValue(frame);
 
     }
 
