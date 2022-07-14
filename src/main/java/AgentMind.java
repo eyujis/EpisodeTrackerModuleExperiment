@@ -69,12 +69,12 @@ public class AgentMind extends Mind {
     eventCategoryLearner.setName("EventCategoryLearner");
     insertCodelet(eventCategoryLearner);
 
-    Codelet eventBufferizerCodelet = new EventBufferizerCodelet();
-    eventBufferizerCodelet.addInput(eventsMO);
-    eventBufferizerCodelet.addOutput(eventsBufferMO);
-    eventBufferizerCodelet.setIsMemoryObserver(true);
-    eventsMO.addMemoryObserver(eventBufferizerCodelet);
-    insertCodelet(eventBufferizerCodelet);
+    Codelet eventsBufferizerCodelet = new EventsBufferizerCodelet();
+    eventsBufferizerCodelet.addInput(eventsMO);
+    eventsBufferizerCodelet.addOutput(eventsBufferMO);
+    eventsBufferizerCodelet.setIsMemoryObserver(true);
+    eventsMO.addMemoryObserver(eventsBufferizerCodelet);
+    insertCodelet(eventsBufferizerCodelet);
 
 
 //

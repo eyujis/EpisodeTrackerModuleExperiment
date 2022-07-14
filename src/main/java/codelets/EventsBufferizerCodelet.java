@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class EventBufferizerCodelet extends Codelet {
+public class EventsBufferizerCodelet extends Codelet {
 
     private Environment e;
     private Memory eventsMO;
