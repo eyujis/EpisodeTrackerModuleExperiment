@@ -14,7 +14,7 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
     PropertyCategory propertyCategory;
 
     public Memory objectsBufferMO;
-    public Memory eventsMC;
+    public Memory eventsMO;
     public double initialTime;
     public double finalTime;
     private List<Idea> objectsBufferIdeaList;
@@ -29,7 +29,7 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
     @Override
     public void accessMemoryObjects() {
         this.objectsBufferMO=(MemoryObject)this.getInput("OBJECTS_BUFFER");
-        this.eventsMC= (MemoryObject) this.getOutput("EVENTS");
+        this.eventsMO= (MemoryObject) this.getOutput("EVENTS");
     }
 
     @Override
@@ -50,7 +50,7 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
 
         if(eventTracked(this.objectInitialState, this.objectFinalState))  {
 
-            this.eventsMC.setI(this.buildEventIdea());
+            this.eventsMO.setI(this.buildEventIdea());
 //            System.out.println("---------------");
 //            System.out.println(((Idea) this.eventsMC.getI()).toStringFull());
 //            System.out.println(((List<Idea>) ((Idea) this.eventsMC.getI()).get("timeSteps").getValue()).get(0).toStringFull());

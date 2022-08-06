@@ -18,6 +18,7 @@ public class AgentMind extends Mind {
     Memory eventsMO;
 //    MemoryContainer eventsMC;
     Memory eventsBufferMO;
+    Memory episodeMO;
 
     createMemoryGroup("EpisodeTrackerMemoryGroup");
     createCodeletGroup("EpisodeTrackerCodeletGroup");
@@ -30,6 +31,7 @@ public class AgentMind extends Mind {
     propertyCategoriesMO = createMemoryObject("PROPERTY_CATEGORIES", "");
     eventsMO = createMemoryObject("EVENTS", "");
     eventsBufferMO = createMemoryObject("EVENTS_BUFFER");
+    episodeMO = createMemoryObject("EPISODE");
 
     registerMemory(rawDataBufferMO, "EpisodeTrackerMemoryGroup");
     registerMemory(detectedObjectsMO, "EpisodeTrackerMemoryGroup");
@@ -37,6 +39,7 @@ public class AgentMind extends Mind {
     registerMemory(propertyCategoriesMO, "EpisodeTrackerMemoryGroup");
     registerMemory(eventsMO, "EpisodeTrackerMemoryGroup");
     registerMemory(eventsBufferMO, "EpisodeTrackerMemoryGroup");
+    registerMemory(episodeMO, "EpisodeTrackerMemoryGroup");
 
 
     // Create Codelets
@@ -79,6 +82,14 @@ public class AgentMind extends Mind {
     eventCategoryLearner.setName("EventBufferizer");
     insertCodelet(eventsBufferizerCodelet);
 
+    Codelet episodeTrackerCodelet = new EpisodeTrackerCodelet();
+    episodeTrackerCodelet.addInput(eventsBufferMO);
+    episodeTrackerCodelet.addOutput(episodeMO);
+    episodeTrackerCodelet.setIsMemoryObserver(true);
+    eventsBufferMO.addMemoryObserver(episodeTrackerCodelet);
+    episodeTrackerCodelet.setName("EpisodeTracker");
+    insertCodelet(episodeTrackerCodelet);
+
 
 
     registerCodelet(rawDataBufferizerCodelet, "EpisodeTrackerCodeletGroup");
@@ -87,6 +98,7 @@ public class AgentMind extends Mind {
     registerCodelet(propertyCategoryLearnerCodelet, "EpisodeTrackerCodeletGroup");
     registerCodelet(eventCategoryLearner, "EpisodeTrackerCodeletGroup");
     registerCodelet(eventsBufferizerCodelet, "EpisodeTrackerCodeletGroup");
+    registerCodelet(episodeTrackerCodelet, "EpisodeTrackerCodeletGroup");
 
 
 //    Codelet categoryLearnerCodelet = new CategoryLearnerCodelet();
