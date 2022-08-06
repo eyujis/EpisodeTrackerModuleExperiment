@@ -20,9 +20,6 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
     private List<Idea> objectsBufferIdeaList;
     private Idea objectInitialState;
     private Idea objectFinalState;
-    private int memoryInContainerIdx;
-    private boolean firstSetIExecuted = true;
-    private double evaluation = 1.0;
 
 
     public EventTrackerPropertyCategoryCodelet()    {
@@ -32,7 +29,7 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
     @Override
     public void accessMemoryObjects() {
         this.objectsBufferMO=(MemoryObject)this.getInput("OBJECTS_BUFFER");
-        this.eventsMC= (MemoryContainer) this.getOutput("EVENTS");
+        this.eventsMC= (MemoryObject) this.getOutput("EVENTS");
     }
 
     @Override
@@ -52,12 +49,8 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
         this.finalTime = getObjectTime(this.objectFinalState);
 
         if(eventTracked(this.objectInitialState, this.objectFinalState))  {
-            if (firstSetIExecuted==true)    {
-                memoryInContainerIdx = ((MemoryContainer) this.eventsMC).setI(this.buildEventIdea(), evaluation);
-                firstSetIExecuted = false;
-            } else {
-                ((MemoryContainer) this.eventsMC).setI(this.buildEventIdea(), evaluation, memoryInContainerIdx);
-            }
+
+            this.eventsMC.setI(this.buildEventIdea());
 //            System.out.println("---------------");
 //            System.out.println(((Idea) this.eventsMC.getI()).toStringFull());
 //            System.out.println(((List<Idea>) ((Idea) this.eventsMC.getI()).get("timeSteps").getValue()).get(0).toStringFull());

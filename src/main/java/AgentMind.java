@@ -15,8 +15,8 @@ public class AgentMind extends Mind {
     Memory detectedObjectsMO;
     Memory objectsBufferMO;
     Memory propertyCategoriesMO;
-//    Memory eventsMO;
-    Memory eventsMC;
+    Memory eventsMO;
+//    MemoryContainer eventsMC;
     Memory eventsBufferMO;
 
     createMemoryGroup("EpisodeTrackerMemoryGroup");
@@ -28,14 +28,14 @@ public class AgentMind extends Mind {
     detectedObjectsMO = createMemoryObject("DETECTED_OBJECTS", "");
     objectsBufferMO = createMemoryObject("OBJECTS_BUFFER", "");
     propertyCategoriesMO = createMemoryObject("PROPERTY_CATEGORIES", "");
-    eventsMC = createMemoryContainer("EVENTS");
+    eventsMO = createMemoryObject("EVENTS", "");
     eventsBufferMO = createMemoryObject("EVENTS_BUFFER");
 
     registerMemory(rawDataBufferMO, "EpisodeTrackerMemoryGroup");
     registerMemory(detectedObjectsMO, "EpisodeTrackerMemoryGroup");
     registerMemory(objectsBufferMO, "EpisodeTrackerMemoryGroup");
     registerMemory(propertyCategoriesMO, "EpisodeTrackerMemoryGroup");
-    registerMemory(eventsMC, "EpisodeTrackerMemoryGroup");
+    registerMemory(eventsMO, "EpisodeTrackerMemoryGroup");
     registerMemory(eventsBufferMO, "EpisodeTrackerMemoryGroup");
 
 
@@ -66,16 +66,16 @@ public class AgentMind extends Mind {
 
     CodeletContainer EventTrackerCodeletContainer = new CodeletContainer();
 
-    Codelet eventCategoryLearner = new EventCategoryLearnerCodelet(this, objectsBufferMO, (MemoryContainer) eventsMC);
+    Codelet eventCategoryLearner = new EventCategoryLearnerCodelet(this, objectsBufferMO, eventsMO);
     eventCategoryLearner.addInput(propertyCategoriesMO);
     eventCategoryLearner.setName("EventCategoryLearner");
     insertCodelet(eventCategoryLearner);
 
     Codelet eventsBufferizerCodelet = new EventsBufferizerCodelet();
-    eventsBufferizerCodelet.addInput(eventsMC);
+    eventsBufferizerCodelet.addInput(eventsMO);
     eventsBufferizerCodelet.addOutput(eventsBufferMO);
-//    eventsBufferizerCodelet.setIsMemoryObserver(true);
-//    eventsMC.addMemoryObserver(eventsBufferizerCodelet);
+    eventsBufferizerCodelet.setIsMemoryObserver(true);
+    eventsMO.addMemoryObserver(eventsBufferizerCodelet);
     eventCategoryLearner.setName("EventBufferizer");
     insertCodelet(eventsBufferizerCodelet);
 
