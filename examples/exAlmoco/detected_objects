@@ -1,0 +1,47 @@
+{
+  "id": 1,
+  "name": "detected_objects",
+  "value": "",
+  "l": [
+    {
+      "id": 3,
+      "name": "object",
+      "value": "",
+      "l": [
+        {
+          "id": 43,
+          "name": "instant",
+          "value": "920.414",
+          "l": [],
+          "type": 1,
+          "category": "Property",
+          "scope": 1
+        },
+        {
+          "id": 15,
+          "name": "latitude",
+          "value": "-22.820961",
+          "l": [],
+          "type": 1,
+          "category": "Property",
+          "scope": 1
+        },
+        {
+          "id": 5,
+          "name": "longitude",
+          "value": "-47.066437",
+          "l": [],
+          "type": 1,
+          "category": "Property",
+          "scope": 1
+        }
+      ],
+      "type": 0,
+      "category": "Object",
+      "scope": 1
+    }
+  ],
+  "type": 0,
+  "category": "",
+  "scope": 1
+}

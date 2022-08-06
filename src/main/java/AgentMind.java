@@ -15,12 +15,12 @@ public class AgentMind extends Mind {
     Memory detectedObjectsMO;
     Memory objectsBufferMO;
     Memory propertyCategoriesMO;
-    Memory eventsMO;
-//    MemoryContainer eventsMC;
+//    Memory eventsMO;
+    Memory eventsMC;
     Memory eventsBufferMO;
 
-//    createMemoryGroup("EpisodeTrackerMemoryGroup");
-//    createCodeletGroup("EpisodeTrackerCodeletGroup");
+    createMemoryGroup("EpisodeTrackerMemoryGroup");
+    createCodeletGroup("EpisodeTrackerCodeletGroup");
 
 
     // Initialize Memory Objects
@@ -28,13 +28,15 @@ public class AgentMind extends Mind {
     detectedObjectsMO = createMemoryObject("DETECTED_OBJECTS", "");
     objectsBufferMO = createMemoryObject("OBJECTS_BUFFER", "");
     propertyCategoriesMO = createMemoryObject("PROPERTY_CATEGORIES", "");
-    eventsMO = createMemoryObject("EVENTS", "");
+    eventsMC = createMemoryContainer("EVENTS");
     eventsBufferMO = createMemoryObject("EVENTS_BUFFER");
 
-//    registerMemory(rawDataBufferMO, "EpisodeTrackerMemoryGroup");
-//    registerMemory(detectedObjectsMO, "EpisodeTrackerMemoryGroup");
-//    registerMemory(objectsBufferMO, "EpisodeTrackerMemoryGroup");
-//    registerMemory(propertyCategoriesMO, "EpisodeTrackerMemoryGroup");
+    registerMemory(rawDataBufferMO, "EpisodeTrackerMemoryGroup");
+    registerMemory(detectedObjectsMO, "EpisodeTrackerMemoryGroup");
+    registerMemory(objectsBufferMO, "EpisodeTrackerMemoryGroup");
+    registerMemory(propertyCategoriesMO, "EpisodeTrackerMemoryGroup");
+    registerMemory(eventsMC, "EpisodeTrackerMemoryGroup");
+    registerMemory(eventsBufferMO, "EpisodeTrackerMemoryGroup");
 
 
     // Create Codelets
@@ -64,26 +66,28 @@ public class AgentMind extends Mind {
 
     CodeletContainer EventTrackerCodeletContainer = new CodeletContainer();
 
-    Codelet eventCategoryLearner = new EventCategoryLearnerCodelet(this, objectsBufferMO, eventsMO);
+    Codelet eventCategoryLearner = new EventCategoryLearnerCodelet(this, objectsBufferMO, (MemoryContainer) eventsMC);
     eventCategoryLearner.addInput(propertyCategoriesMO);
     eventCategoryLearner.setName("EventCategoryLearner");
     insertCodelet(eventCategoryLearner);
 
     Codelet eventsBufferizerCodelet = new EventsBufferizerCodelet();
-    eventsBufferizerCodelet.addInput(eventsMO);
+    eventsBufferizerCodelet.addInput(eventsMC);
     eventsBufferizerCodelet.addOutput(eventsBufferMO);
-    eventsBufferizerCodelet.setIsMemoryObserver(true);
-    eventsMO.addMemoryObserver(eventsBufferizerCodelet);
+//    eventsBufferizerCodelet.setIsMemoryObserver(true);
+//    eventsMC.addMemoryObserver(eventsBufferizerCodelet);
+    eventCategoryLearner.setName("EventBufferizer");
     insertCodelet(eventsBufferizerCodelet);
 
 
-//
-//    registerCodelet(rawDataBufferizerCodelet, "EpisodeTrackerCodeletGroup");
-//    registerCodelet(objectProposerCodelet, "EpisodeTrackerCodeletGroup");
-//    registerCodelet(objectBufferizerCodelet, "EpisodeTrackerCodeletGroup");
-//    registerCodelet(propertyCategoryLearnerCodelet, "EpisodeTrackerCodeletGroup");
-//    registerCodelet(eventCategoryLearner, "EpisodeTrackerCodeletGroup");
-//
+
+    registerCodelet(rawDataBufferizerCodelet, "EpisodeTrackerCodeletGroup");
+    registerCodelet(objectProposerCodelet, "EpisodeTrackerCodeletGroup");
+    registerCodelet(objectBufferizerCodelet, "EpisodeTrackerCodeletGroup");
+    registerCodelet(propertyCategoryLearnerCodelet, "EpisodeTrackerCodeletGroup");
+    registerCodelet(eventCategoryLearner, "EpisodeTrackerCodeletGroup");
+    registerCodelet(eventsBufferizerCodelet, "EpisodeTrackerCodeletGroup");
+
 
 //    Codelet categoryLearnerCodelet = new CategoryLearnerCodelet();
 //    categoryLearnerCodelet.addInput(rawDataMO);

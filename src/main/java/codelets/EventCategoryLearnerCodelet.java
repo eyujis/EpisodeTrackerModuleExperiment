@@ -1,6 +1,9 @@
 package codelets;
 
 import br.unicamp.cst.core.entities.*;
+import codelets.EventCategoryCodelets.EventInCategoryCodelet;
+import codelets.EventCategoryCodelets.EventOutCategoryCodelet;
+import codelets.EventCategoryCodelets.EventStayCategoryCodelet;
 import entities.PropertyCategory;
 
 import java.util.ArrayList;
@@ -10,12 +13,12 @@ public class EventCategoryLearnerCodelet extends Codelet {
     Mind mind;
     Memory propertyCategoriesMO;
     Memory objectsBufferMO;
-    Memory eventsMC;
+    MemoryContainer eventsMC;
     // CodeletContainer does not have methods for setting outputs, only inputs. Thus, it is not useful.
     // Used a Codelet ArrayList instead;
     //    CodeletContainer codeletContainer;
     ArrayList<Codelet> codeletContainer = new ArrayList<Codelet>();
-    public EventCategoryLearnerCodelet(Mind mind, Memory objectsBufferMO, Memory eventsMC)   {
+    public EventCategoryLearnerCodelet(Mind mind, Memory objectsBufferMO, MemoryContainer eventsMC)   {
         this.mind = mind;
         this.objectsBufferMO = objectsBufferMO;
         this.eventsMC = eventsMC;
@@ -39,7 +42,14 @@ public class EventCategoryLearnerCodelet extends Codelet {
 
         updateEventTrackers(propertyCategories);
 
-//        System.out.println(this.eventsMC.getI());
+//        System.out.println(((Idea) this.eventsMO.getI()).toStringFull());
+//        System.out.println("-------------------------");
+//        Idea event = ((Idea) this.eventsMO.getI());
+//        ArrayList<Idea> timeSteps = (ArrayList<Idea>) event.get("timeSteps").getValue();
+//        System.out.println(event.getName());
+//        System.out.println(timeSteps.get(0).toStringFull());
+//        System.out.println(timeSteps.get(1).toStringFull());
+
 
     }
 

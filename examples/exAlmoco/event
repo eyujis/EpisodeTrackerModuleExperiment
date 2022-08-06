@@ -1,0 +1,123 @@
+{
+  "id": 1,
+  "name": "event",
+  "value": "",
+  "l": [
+    {
+      "id": 277,
+      "name": "Event - IN: Region 5",
+      "value": "",
+      "l": [
+        {
+          "id": 323,
+          "name": "{0}",
+          "value": "",
+          "l": [
+            {
+              "id": 365,
+              "name": "time",
+              "value": "16621.907",
+              "l": [],
+              "type": 1,
+              "category": "Property",
+              "scope": 1
+            },
+            {
+              "id": 324,
+              "name": "object",
+              "value": "",
+              "l": [
+                {
+                  "id": 475,
+                  "name": "latitude",
+                  "value": "-22.821821",
+                  "l": [],
+                  "type": 1,
+                  "category": "Property",
+                  "scope": 1
+                },
+                {
+                  "id": 475,
+                  "name": "latitude",
+                  "value": "-22.821821",
+                  "l": [],
+                  "type": 1,
+                  "category": "Property",
+                  "scope": 1
+                },
+                {
+                  "id": 476,
+                  "name": "longitude",
+                  "value": "-47.06567",
+                  "l": [],
+                  "type": 1,
+                  "category": "Property",
+                  "scope": 1
+                }
+              ],
+              "type": 0,
+              "category": "",
+              "scope": 1
+            }
+          ],
+          "type": 8,
+          "category": "TimeStep",
+          "scope": 1
+        },
+        {
+          "id": 477,
+          "name": "{1}",
+          "value": "",
+          "l": [
+            {
+              "id": 483,
+              "name": "object",
+              "value": "",
+              "l": [
+                {
+                  "id": 484,
+                  "name": "latitude",
+                  "value": "-22.8211",
+                  "l": [],
+                  "type": 1,
+                  "category": "Property",
+                  "scope": 1
+                },
+                {
+                  "id": 486,
+                  "name": "longitude",
+                  "value": "-47.06636",
+                  "l": [],
+                  "type": 1,
+                  "category": "Property",
+                  "scope": 1
+                }
+              ],
+              "type": 0,
+              "category": "",
+              "scope": 1
+            },
+            {
+              "id": 478,
+              "name": "time",
+              "value": "17230.089",
+              "l": [],
+              "type": 1,
+              "category": "Property",
+              "scope": 1
+            }
+          ],
+          "type": 8,
+          "category": "TimeStep",
+          "scope": 1
+        }
+      ],
+      "type": 4,
+      "category": "Episode",
+      "scope": 1
+    }
+  ],
+  "type": 0,
+  "category": "",
+  "scope": 1
+}

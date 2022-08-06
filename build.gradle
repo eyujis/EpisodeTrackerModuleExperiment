@@ -32,7 +32,8 @@ dependencies {
     // You can read more about how to add dependency here:
     //   http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:how_to_declare_your_dependencies
     implementation fileTree(dir: 'lib', include: ['*.jar'])
-    implementation 'com.github.CST-Group:cst:1.2.0'
+//    implementation 'com.github.CST-Group:cst:1.2.0'
+    implementation 'com.github.CST-Group:cst-desktop:1.0.4'
     implementation 'org.json:json:20180813'
     implementation 'org.apache.commons:commons-lang3:3.0'
 //    implementation 'org.apache.commons:commons-lang3:3.12.0.redhat-00001'

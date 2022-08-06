@@ -15,7 +15,7 @@ import java.util.List;
 public class EventsBufferizerCodelet extends Codelet {
 
     private Environment e;
-    private Memory eventsMO;
+    private Memory eventsMC;
     private Memory eventsBufferMO;
     private int buffer_size = 5;
     private List<Double> timestamp = new ArrayList<Double>();
@@ -27,23 +27,32 @@ public class EventsBufferizerCodelet extends Codelet {
 
     @Override
     public void accessMemoryObjects() {
-        this.eventsMO=(MemoryObject)this.getInput("EVENTS");
+        this.eventsMC=(Memory)this.getInput("EVENTS");
         this.eventsBufferMO=(MemoryObject)this.getOutput("EVENTS_BUFFER");
     }
 
     @Override
     public void proc() {
-        if (this.eventsMO.getI()=="")    {
+        if (this.eventsMC.getI()=="")    {
             return;
         }
 
-        Idea eventFrame = (Idea) eventsMO.getI();
+        Idea eventFrame = (Idea) eventsMC.getI();
         List<Idea> eventFrames = (List<Idea>) ((Idea) this.eventsBuffer).getValue();
         addFrame(eventFrames, eventFrame);
         eventsBufferMO.setI((Idea) eventsBuffer);
 
+//        System.out.println("-------------------------");
+//        Idea event = ((Idea) this.eventsMO.getI());
+//        ArrayList<Idea> timeSteps = (ArrayList<Idea>) event.get("timeSteps").getValue();
+//        System.out.println(event.getName());
+//        System.out.println(timeSteps.get(0).toStringFull());
+//        System.out.println(timeSteps.get(1).toStringFull());
+
+
 //          Print that checks if buffer correctly shifts value positions
         System.out.println(((Idea) eventsBufferMO.getI()).getValue());
+
 
     }
 
