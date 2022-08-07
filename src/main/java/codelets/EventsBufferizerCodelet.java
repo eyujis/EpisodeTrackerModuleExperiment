@@ -13,14 +13,9 @@ import java.util.List;
 
 
 public class EventsBufferizerCodelet extends Codelet {
-
-    private Environment e;
     private Memory eventsMO;
     private Memory eventsBufferMO;
     private int buffer_size = 5;
-    private List<Double> timestamp = new ArrayList<Double>();
-    private List<Double> latitude = new ArrayList<Double>();
-    private List<Double> longitude = new ArrayList<Double>();
     private Idea eventsBuffer = initializeBuffer();
 
 
