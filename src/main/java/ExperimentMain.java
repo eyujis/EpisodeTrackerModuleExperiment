@@ -40,7 +40,7 @@ public class ExperimentMain {
 
 
 	public static void main(String[] args) throws IOException {
-		ExperimentMain edm = new ExperimentMain();
+		ExperimentMain ex = new ExperimentMain();
 	}
 
 }
