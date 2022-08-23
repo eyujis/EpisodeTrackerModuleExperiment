@@ -108,6 +108,8 @@ public class EventCategoryLearnerCodelet extends Codelet {
         EventStayCategoryCodelet eventStayCategoryCodelet = new EventStayCategoryCodelet(propertyCategory);
         eventStayCategoryCodelet.addInput(this.objectsBufferMO);
         eventStayCategoryCodelet.addOutput(this.eventsMO);
+        eventStayCategoryCodelet.setIsMemoryObserver(true);
+        this.objectsBufferMO.addMemoryObserver(eventStayCategoryCodelet);
         this.codeletContainer.add(eventStayCategoryCodelet);
         this.mind.insertCodelet(eventStayCategoryCodelet);
         this.mind.getCodeRack().insertCodelet(eventStayCategoryCodelet);
@@ -118,6 +120,8 @@ public class EventCategoryLearnerCodelet extends Codelet {
         EventInCategoryCodelet eventInCategoryCodelet = new EventInCategoryCodelet(propertyCategory);
         eventInCategoryCodelet.addInput(this.objectsBufferMO);
         eventInCategoryCodelet.addOutput(this.eventsMO);
+        eventInCategoryCodelet.setIsMemoryObserver(true);
+        this.objectsBufferMO.addMemoryObserver(eventInCategoryCodelet);
         this.codeletContainer.add(eventInCategoryCodelet);
         this.mind.insertCodelet(eventInCategoryCodelet);
         this.mind.getCodeRack().insertCodelet(eventInCategoryCodelet);
@@ -128,6 +132,8 @@ public class EventCategoryLearnerCodelet extends Codelet {
         EventOutCategoryCodelet eventOutCategoryCodelet = new EventOutCategoryCodelet(propertyCategory);
         eventOutCategoryCodelet.addInput(this.objectsBufferMO);
         eventOutCategoryCodelet.addOutput(this.eventsMO);
+        eventOutCategoryCodelet.setIsMemoryObserver(true);
+        this.objectsBufferMO.addMemoryObserver(eventOutCategoryCodelet);
         this.codeletContainer.add(eventOutCategoryCodelet);
         this.mind.insertCodelet(eventOutCategoryCodelet);
         this.mind.getCodeRack().insertCodelet(eventOutCategoryCodelet);

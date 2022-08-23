@@ -21,7 +21,7 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
     private Idea objectInitialState;
     private Idea objectFinalState;
 
-    private double deltaTime = 120;
+    private double deltaTime = 60;
 
 
     public EventTrackerPropertyCategoryCodelet()    {
@@ -44,21 +44,16 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
         if  (this.objectsBufferMO.getI()=="")   {
             return;
         }
-//        this.objectsBufferIdeaList = (List<Idea>) ((Idea) this.objectsBufferMO.getI()).get("timeSteps").getValue();
-//        updateObjectInitialState();
-//        updateObjectFinalState();
-//        this.initialTime = getObjectTime(this.objectInitialState);
-//        this.finalTime = getObjectTime(this.objectFinalState);
-//
-        // New edits
+
         this.objectsBufferIdeaList = (List<Idea>) ((Idea) this.objectsBufferMO.getI()).get("timeSteps").clone().getValue();
+
         if(this.initialTime==-1)    {
             this.objectInitialState = getObjectCurrentState();
             this.initialTime = getObjectTime(this.objectInitialState);
-        }   else {
-            this.objectFinalState = getObjectCurrentState();
-            this.finalTime = getObjectTime(this.objectFinalState);
         }
+
+        this.objectFinalState = getObjectCurrentState();
+        this.finalTime = getObjectTime(this.objectFinalState);
 
         if(this.finalTime-this.initialTime >= this.deltaTime)    {
             Idea objectInitialStateClone = this.objectInitialState.clone();
@@ -70,27 +65,15 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
 //                System.out.println(((List<Idea>) ((Idea) this.eventsMO.getI()).get("timeSteps").getValue()).get(0).toStringFull());
 //                System.out.println(((List<Idea>) ((Idea) this.eventsMO.getI()).get("timeSteps").getValue()).get(1).toStringFull());
             }
-            this.initialTime = -1;
+            this.initialTime = this.finalTime;
+            this.objectInitialState = this.objectFinalState.clone();
 
         }
-
-
-
-
-//        if(eventTracked(this.objectInitialState, this.objectFinalState))  {
-//
-//            this.eventsMO.setI(this.buildEventIdea(this.objectInitialState, this.objectFinalState));
-//            System.out.println(this.finalTime-this.initialTime);
-////            System.out.println("---------------");
-////            System.out.println(((Idea) this.eventsMC.getI()).toStringFull());
-////            System.out.println(((List<Idea>) ((Idea) this.eventsMC.getI()).get("timeSteps").getValue()).get(0).toStringFull());
-////            System.out.println(((List<Idea>) ((Idea) this.eventsMC.getI()).get("timeSteps").getValue()).get(1).toStringFull());
-//        }
     }
 
     public abstract boolean eventTracked(Idea objectInitialState, Idea objectFinalState);
     public Idea getObjectCurrentState() {
-        int currentStateIdx = this.objectsBufferIdeaList.size()-1;
+        int currentStateIdx = 0;
         Idea objectCurrentState = this.objectsBufferIdeaList.get(currentStateIdx);
         return objectCurrentState.get("object").clone();
     }

@@ -14,7 +14,7 @@ public class ObjectBufferizerCodelet extends Codelet {
     private Memory detectedObjectsMO;
     private Memory objectBufferMO;
 
-    private int buffer_size = 100;
+    private int buffer_size = 1;
 
     private Idea objectsBufferIdea = initializeBuffer(buffer_size);
 

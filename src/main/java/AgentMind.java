@@ -55,8 +55,8 @@ public class AgentMind extends Mind {
     Codelet objectProposerCodelet = new ObjectProposerCodelet();
     objectProposerCodelet.addInput(rawDataBufferMO);
     objectProposerCodelet.addOutput(detectedObjectsMO);
-    objectProposerCodelet.setIsMemoryObserver(true);
-    rawDataBufferMO.addMemoryObserver(objectProposerCodelet);
+//    objectProposerCodelet.setIsMemoryObserver(true);
+//    rawDataBufferMO.addMemoryObserver(objectProposerCodelet);
     objectProposerCodelet.setName("ObjectProposer");
     insertCodelet(objectProposerCodelet);
 
