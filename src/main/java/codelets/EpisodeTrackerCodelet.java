@@ -17,10 +17,15 @@ public class EpisodeTrackerCodelet extends Codelet {
     ArrayList<Idea> eventsFrames;
     ArrayList<Idea> timeSteps;
 
-    Idea initialTimeStep;
-    Idea finalTimeStep;
+    Idea initialStayTimeStep;
+    Idea finalStayTimeStep;
     String stayEventSequenceName = "";
     boolean stayEventSequenceStarted = false;
+
+    Idea initialMoveTimeStep;
+    Idea finalMoveTimeStep;
+    String moveEventName = "MOVE";
+    boolean moveEventSequenceStarted = false;
 
 
     @Override
@@ -39,12 +44,48 @@ public class EpisodeTrackerCodelet extends Codelet {
         if (this.eventsBufferMO.getI()=="") {
             return;
         }
-        eventsBuffer = (Idea) eventsBufferMO.getI();
         try {
+            eventsBuffer = (Idea) this.eventsBufferMO.getI();
             eventsFrames = (ArrayList<Idea>) eventsBuffer.getValue();
         }   catch (java.lang.NullPointerException e)   {return;}
 
-        currentEvent = getFirstPosition(eventsFrames);
+        currentEvent = getFirstPosition(eventsFrames).clone();
+
+        concatenateStayEventAndSetI(currentEvent);
+        setIOutEvent(currentEvent);
+        detectMoveEventAndSetI(currentEvent);
+        setIInEvent(currentEvent);
+//            System.out.println( ((Idea) this.episodeMO.getI()).toStringFull());
+
+    }
+
+    private void detectMoveEventAndSetI(Idea currentEvent)  {
+        if(isOutEvent(currentEvent) == true) {
+            moveEventSequenceStarted = true;
+            timeSteps = (ArrayList<Idea>) currentEvent.get("timeSteps").getValue();
+            initialMoveTimeStep = timeSteps.get(0).clone();
+        }   else if(isInEvent(currentEvent) != true){
+            moveEventSequenceStarted = false;
+        }
+
+        if(isInEvent(currentEvent) == true && moveEventSequenceStarted == true) {
+            timeSteps = (ArrayList<Idea>) currentEvent.get("timeSteps").getValue();
+            finalMoveTimeStep = timeSteps.get(0).clone();
+
+            Idea moveEventSequence = buildEventIdea(moveEventName, initialMoveTimeStep, finalMoveTimeStep);
+            this.episodeMO.setI(moveEventSequence);
+
+            moveEventSequenceStarted = false;
+        }
+
+    }
+    private void concatenateStayEventAndSetI(Idea currentEvent)  {
+        if (stayEventSequenceStarted==false)   {
+            if(isStayEvent(currentEvent)==true) {
+                stayEventSequenceStarted = true;
+                stayEventSequenceName = currentEvent.getName();
+            }
+        }
 
         if (isStayEvent(currentEvent) == true) {
             if (stayEventSequenceStarted == false) {
@@ -52,25 +93,50 @@ public class EpisodeTrackerCodelet extends Codelet {
                 stayEventSequenceName = currentEvent.getName();
 
                 timeSteps = (ArrayList<Idea>) currentEvent.get("timeSteps").getValue();
-                initialTimeStep = timeSteps.get(0);
-                finalTimeStep = timeSteps.get(timeSteps.size()-1);
+                initialStayTimeStep = timeSteps.get(0).clone();
+                finalStayTimeStep = timeSteps.get(timeSteps.size()-1).clone();
             }
 
             if (stayEventSequenceStarted == true) {
                 timeSteps = (ArrayList<Idea>) currentEvent.get("timeSteps").getValue();
-                finalTimeStep = timeSteps.get(timeSteps.size()-1);
+                finalStayTimeStep = timeSteps.get(timeSteps.size()-1).clone();
             }
         }   else   {
             if (stayEventSequenceStarted==true)  {
                 stayEventSequenceStarted=false;
-                Idea stayEventSequence = buildEventIdea();
+                Idea stayEventSequence = buildEventIdea(stayEventSequenceName, initialStayTimeStep, finalStayTimeStep);
                 this.episodeMO.setI(stayEventSequence);
 //                System.out.println( ((Idea) this.episodeMO.getI()).toStringFull());
             }
-            this.episodeMO.setI(currentEvent);
-//            System.out.println( ((Idea) this.episodeMO.getI()).toStringFull());
+//            this.episodeMO.setI(currentEvent);
         }
 
+    }
+
+    private void setIOutEvent(Idea currentEvent) {
+        if (isOutEvent(currentEvent) == true)   {
+            this.episodeMO.setI(currentEvent);
+        }
+    }
+
+    private void setIInEvent(Idea currentEvent) {
+        if (isInEvent(currentEvent) == true)   {
+            this.episodeMO.setI(currentEvent);
+        }
+    }
+
+    private boolean isOutEvent(Idea event)   {
+        if(event.getName().endsWith("OUT")) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isInEvent(Idea event)   {
+        if(event.getName().endsWith("IN")) {
+            return true;
+        }
+        return false;
     }
 
     private boolean isStayEvent(Idea event)   {
@@ -83,8 +149,8 @@ public class EpisodeTrackerCodelet extends Codelet {
         return eventsFrames.get(0);
     }
 
-    public Idea buildEventIdea()   {
-        Idea event = new Idea(stayEventSequenceName, "", 0);
+    public Idea buildEventIdea(String eventName, Idea initialTimeStep, Idea finalTimeStep)   {
+        Idea event = new Idea(eventName, "", 0);
         List<Idea> timeSteps = new ArrayList<Idea>();
         timeSteps.add(initialTimeStep);
         timeSteps.add(finalTimeStep);

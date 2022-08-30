@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Environment {
     // Verified
-    BufferedReader csvReader = new BufferedReader(new FileReader("src/main/dataset/almoco.csv"));
+    BufferedReader csvReader = new BufferedReader(new FileReader("src/main/dataset/feec-casa.csv"));
     // Verified
 //    BufferedReader csvReader = new BufferedReader(new FileReader("src/main/dataset/palestra.csv"));
     //
