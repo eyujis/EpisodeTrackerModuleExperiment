@@ -49,7 +49,7 @@ public class EpisodeTrackerCodelet extends Codelet {
             eventsFrames = (ArrayList<Idea>) eventsBuffer.getValue();
         }   catch (java.lang.NullPointerException e)   {return;}
 
-        currentEvent = getFirstPosition(eventsFrames).clone();
+        currentEvent = getLastPosition(eventsFrames).clone();
 
         concatenateStayEventAndSetI(currentEvent);
         setIOutEvent(currentEvent);
@@ -145,8 +145,8 @@ public class EpisodeTrackerCodelet extends Codelet {
         }
         return false;
     }
-    private Idea getFirstPosition(ArrayList<Idea> eventsFrames)   {
-        return eventsFrames.get(0);
+    private Idea getLastPosition(ArrayList<Idea> eventsFrames)   {
+        return eventsFrames.get(eventsFrames.size()-1);
     }
 
     public Idea buildEventIdea(String eventName, Idea initialTimeStep, Idea finalTimeStep)   {

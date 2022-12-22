@@ -3,9 +3,7 @@ package codelets.EventCategoryCodelets;
 import br.unicamp.cst.representation.idea.Idea;
 import entities.EventTrackerPropertyCategoryCodelet;
 import entities.PropertyCategory;
-import pheromone.Position;
-
-import java.util.List;
+import regions.Position;
 
 public class EventStayCategoryCodelet extends EventTrackerPropertyCategoryCodelet {
     PropertyCategory propertyCategory;

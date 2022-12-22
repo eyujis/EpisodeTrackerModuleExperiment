@@ -76,6 +76,8 @@ public class AgentMind extends Mind {
     propertyCategoryLearnerCodelet.setName("PropertyCategoryLearner");
     insertCodelet(propertyCategoryLearnerCodelet);
 
+
+
     Codelet eventCategoryLearner = new EventCategoryLearnerCodelet(this, objectsBufferMO, eventsMO);
     eventCategoryLearner.addInput(propertyCategoriesMO);
     eventCategoryLearner.setIsMemoryObserver(true);
@@ -111,7 +113,7 @@ public class AgentMind extends Mind {
     registerCodelet(rawDataBufferizerCodelet, "EpisodeTrackerCodeletGroup");
     registerCodelet(objectProposerCodelet, "EpisodeTrackerCodeletGroup");
     registerCodelet(objectBufferizerCodelet, "EpisodeTrackerCodeletGroup");
-    registerCodelet(propertyCategoryLearnerCodelet, "EpisodeTrackerCodeletGroup");
+//    registerCodelet(propertyCategoryLearnerCodelet, "EpisodeTrackerCodeletGroup");
     registerCodelet(eventCategoryLearner, "EpisodeTrackerCodeletGroup");
     registerCodelet(eventsBufferizerCodelet, "EpisodeTrackerCodeletGroup");
     registerCodelet(episodeTrackerCodelet, "EpisodeTrackerCodeletGroup");
