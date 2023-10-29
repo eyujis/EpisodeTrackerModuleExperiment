@@ -1,1 +1,1 @@
-# GPS Experiment instance of the Episode Tracker Module
+# Episode Tracker instance for GPS experiments
