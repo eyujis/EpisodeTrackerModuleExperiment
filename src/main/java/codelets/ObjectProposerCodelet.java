@@ -30,8 +30,6 @@ public class ObjectProposerCodelet extends Codelet {
             Idea frameIdea = getFirstElementFromBuffer(framesIdea);
             Idea objectIdea = buildObject(frameIdea);
             detectedObjectsMO.setI(objectIdea);
-
-//            System.out.println(((Idea) detectedObjectsMO.getI()).toStringFull());
         }
         catch (Exception e) {
         }
@@ -42,7 +40,6 @@ public class ObjectProposerCodelet extends Codelet {
         return frameList.get(0);
     }
 
-    // TODO | Adapt it for a list of objects.
     private Idea buildObject(Idea frameIdea) {
         Idea detectedObjectsIdea = new Idea("detected_objects","",0);
         Idea objectIdea = new Idea("object","",0);

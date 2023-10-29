@@ -12,7 +12,6 @@ public class RAWDataBufferizerCodelet extends Codelet {
     private Environment e;
     private Memory rawDataMO;
     private int buffer_size = 10;
-    private int frame_size = 0;
     private double firstTimestamp;
     private boolean firstCall = true;
 

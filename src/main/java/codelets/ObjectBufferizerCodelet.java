@@ -37,12 +37,6 @@ public class ObjectBufferizerCodelet extends Codelet {
             addObjectToTimeStep(objectsBufferIdeaList, detectedObjectsIdea);
             objectBufferMO.setI((Idea) objectsBufferIdea);
 
-//          Print that checks if buffer correctly shifts value positions
-//            for(int i=0; i<buffer_size; i++) {
-//                System.out.println(((List<Idea>) ((Idea) objectBufferMO.getI()).get("timeSteps").getValue()).get(i).toStringFull());
-//            }
-//            System.out.println("-------------------");
-
         } catch (java.lang.ClassCastException e)  {
 
         }
@@ -65,7 +59,6 @@ public class ObjectBufferizerCodelet extends Codelet {
         return objectsBufferIdea;
     }
 
-    // TODO | Adapt it for a list of objects.
     private void addObjectToTimeStep(List<Idea> objectsBufferIdeaList, Idea detectedObjectIdea) {
 
         // shift right position from frames i=buffer_size-1 to i=0

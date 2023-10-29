@@ -18,11 +18,6 @@ public class RelevantRegionPC implements PropertyCategory {
     }
 
     @Override
-    public Object generateReplica() {
-        return null;
-    }
-
-    @Override
     public boolean belongsToCategory(Object position) {
         if(this.doesPositionIntersectCircle((Position) position))    {
             return true;

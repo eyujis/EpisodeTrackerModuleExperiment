@@ -16,7 +16,6 @@ public class EventCategoryLearnerCodelet extends Codelet {
     Memory eventsMO;
     // CodeletContainer does not have methods for setting outputs, only inputs. Thus, it is not useful.
     // Used a Codelet ArrayList instead;
-    //    CodeletContainer codeletContainer;
     ArrayList<Codelet> codeletContainer = new ArrayList<Codelet>();
     public EventCategoryLearnerCodelet(Mind mind, Memory objectsBufferMO, Memory eventsMO)   {
         this.mind = mind;
@@ -69,7 +68,6 @@ public class EventCategoryLearnerCodelet extends Codelet {
             missingEvents.put("IN", true);
             missingEvents.put("OUT", true);
 
-
             updateWhichEventsAreMissing(ithPropertyCategory, missingEvents);
 
             if(missingEvents.get("STAY") == true)  {
@@ -102,7 +100,6 @@ public class EventCategoryLearnerCodelet extends Codelet {
             }
         }
     }
-
 
     public void addEventStayTrackerCodelet(PropertyCategory propertyCategory)  {
         EventStayCategoryCodelet eventStayCategoryCodelet = new EventStayCategoryCodelet(propertyCategory);
@@ -140,9 +137,6 @@ public class EventCategoryLearnerCodelet extends Codelet {
         eventOutCategoryCodelet.start();
     }
 
-
-
-
     public void removeUnnecessaryEventCodelets(ArrayList<PropertyCategory> propertyCategories) {
         for (int i=0; i<this.codeletContainer.size(); i++)   {
             Codelet ithCodelet = this.codeletContainer.get(i);
@@ -170,7 +164,6 @@ public class EventCategoryLearnerCodelet extends Codelet {
         codeletToRemove.stop();
         this.mind.getCodeRack().destroyCodelet(codeletToRemove);
     }
-
 
 }
 
