@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import br.unicamp.cst.io.rest.RESTServer;
 import environment.Environment;
-import br.unicamp.cst.util.viewer.MindViewer;
 
 
 public class ExperimentMain {

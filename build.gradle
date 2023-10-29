@@ -1,52 +1,21 @@
-apply plugin: 'java'
-apply plugin: 'jacoco'
-apply plugin: 'application'
-mainClassName = 'ExperimentMain'
-
-sourceCompatibility = '1.8'
-[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-
-if (!hasProperty('mainClass')) {
-    ext.mainClass = 'ExperimentMain'
+plugins {
+    id 'java'
 }
+
+group 'org.example'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
     maven {
         url 'https://jitpack.io'
     }
-    maven {
-        url 'https://github.com/rosjava/rosjava_mvn_repo/raw/master'
-    }
-    maven {
-        url 'https://repository.springsource.com/maven/bundles/release'
-    }
-    maven {
-        url 'https://repository.springsource.com/maven/bundles/external'
-    }
-
 }
 
 dependencies {
-    // TODO: Add dependencies here ...
-    // You can read more about how to add dependency here:
-    //   http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:how_to_declare_your_dependencies
-    implementation fileTree(dir: 'lib', include: ['*.jar'])
-//    implementation 'com.github.CST-Group:cst:1.2.0'
-    implementation 'com.github.CST-Group:cst-desktop:1.0.4'
-    implementation 'org.json:json:20180813'
-    implementation 'org.apache.commons:commons-lang3:3.0'
-//    implementation 'org.apache.commons:commons-lang3:3.12.0.redhat-00001'
+    implementation 'com.github.CST-Group:cst:b786d73'
+}
 
-
-//    implementation 'org.apache.commons:com.springsource.org.apache.commons.net:2.0.0'
-//    implementation 'org.apache.commons:com.springsource.org.apache.commons.logging:1.1.1'
-//    implementation 'com.soartech:jsoar-core:4.1.0'
-//    implementation 'com.soartech:jsoar-debugger:4.1.0'
-
-    
-    //implementation fileTree(dir: 'lib', include: ['*.jar'])
-    //implementation 'com.github.CST-Group:cst:0.2.4'
-    //implementation 'org.json:json:20180813'
-    //testCompile group: 'junit', name: 'junit', version: '4.10'
+test {
+    useJUnitPlatform()
 }
