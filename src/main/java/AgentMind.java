@@ -4,6 +4,7 @@ import codelets.*;
 import java.io.IOException;
 
 import environment.Environment;
+import test.TestHttpCodelet;
 
 
 public class AgentMind extends Mind {
@@ -104,6 +105,9 @@ public class AgentMind extends Mind {
     episodeBufferizerCodelet.setName("EpisodeBufferizer");
     insertCodelet(episodeBufferizerCodelet);
 
+    Codelet testHttpCodelet = new TestHttpCodelet();
+    insertCodelet(testHttpCodelet);
+
 
     registerCodelet(rawDataBufferizerCodelet, "EpisodeTrackerCodeletGroup");
     registerCodelet(objectProposerCodelet, "EpisodeTrackerCodeletGroup");
@@ -113,6 +117,7 @@ public class AgentMind extends Mind {
     registerCodelet(eventsBufferizerCodelet, "EpisodeTrackerCodeletGroup");
     registerCodelet(episodeTrackerCodelet, "EpisodeTrackerCodeletGroup");
     registerCodelet(episodeBufferizerCodelet, "EpisodeTrackerCodeletGroup");
+
 
 
     // Sets a time step for running the codelets to avoid heating too much your machine

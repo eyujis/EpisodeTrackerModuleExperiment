@@ -51,6 +51,7 @@ public class RAWDataBufferizerCodelet extends Codelet {
 
             addFrame(frames, raw_data, buffer_size);
 
+
             rawDataMO.setI((Idea) idea_buffer);
 
 //          Print that checks if buffer correctly shifts value positions

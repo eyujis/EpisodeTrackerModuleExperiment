@@ -37,7 +37,7 @@ public class EpisodeBufferizerCodelet extends Codelet {
         addFrame(episodeFrames, episodeFrame);
         this.episodeBufferMO.setI((Idea) episodeBuffer);
 
-        System.out.println(((Idea) episodeBufferMO.getI()).getValue());
+//        System.out.println(((Idea) episodeBufferMO.getI()).getValue());
 
     }
 
