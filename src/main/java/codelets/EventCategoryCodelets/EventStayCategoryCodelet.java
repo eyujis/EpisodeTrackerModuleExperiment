@@ -6,10 +6,8 @@ import entities.PropertyCategory;
 import regions.Position;
 
 public class EventStayCategoryCodelet extends EventTrackerPropertyCategoryCodelet {
-    PropertyCategory propertyCategory;
 
     public EventStayCategoryCodelet(PropertyCategory propertyCategory)   {
-        super();
         this.propertyCategory = propertyCategory;
         this.setName(propertyCategory.getName()+" - STAY");
     }

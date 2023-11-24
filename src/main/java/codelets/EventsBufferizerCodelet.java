@@ -6,19 +6,27 @@ import br.unicamp.cst.core.entities.MemoryContainer;
 import br.unicamp.cst.core.entities.MemoryObject;
 import br.unicamp.cst.representation.idea.Idea;
 import environment.Environment;
+import memory_storage.MemoryInstance;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class EventsBufferizerCodelet extends Codelet {
     private Memory eventsMO;
     private Memory eventsBufferMO;
+    MemoryInstance eventsMI;
+    MemoryInstance eventsBufferMI;
+
     private int buffer_size = 5;
-    private Idea eventsBuffer = initializeBuffer();
+    private Idea eventsBuffer =  new Idea("eventsBuffer","",0);
 
-
+    public EventsBufferizerCodelet(MemoryInstance eventsMI, MemoryInstance eventsBufferMI) {
+        this.eventsMI = eventsMI;
+        this.eventsBufferMI = eventsBufferMI;
+    }
 
     @Override
     public void accessMemoryObjects() {
@@ -28,27 +36,11 @@ public class EventsBufferizerCodelet extends Codelet {
 
     @Override
     public void proc() {
-        if (this.eventsMO.getI()=="")    {
-            return;
-        }
+        Idea eventFrame = eventsMI.getIdea();
+        addFrame(eventFrame);
 
-        Idea eventFrame = (Idea) eventsMO.getI();
-        List<Idea> eventFrames = (List<Idea>) ((Idea) this.eventsBuffer).getValue();
-        addFrame(eventFrames, eventFrame);
-        eventsBufferMO.setI((Idea) eventsBuffer);
-
-//        System.out.println("-------------------------");
-//        Idea event = ((Idea) this.eventsMO.getI());
-//        ArrayList<Idea> timeSteps = (ArrayList<Idea>) event.get("timeSteps").getValue();
-//        System.out.println(event.getName());
-//        System.out.println(timeSteps.get(0).toStringFull());
-//        System.out.println(timeSteps.get(1).toStringFull());
-
-
-//          Print that checks if buffer correctly shifts value positions
-//        System.out.println(((Idea) eventsBufferMO.getI()).getValue());
-
-
+        eventsBufferMI.postIdea(eventsBuffer);
+        eventsBufferMO.setI("");
     }
 
     @Override
@@ -56,21 +48,12 @@ public class EventsBufferizerCodelet extends Codelet {
 
     }
 
-    public Idea initializeBuffer() {
-        Idea eventsBuffer = new Idea("eventsBuffer","",0);
-        List<Idea> events = new ArrayList<Idea>();
-        eventsBuffer.setValue(events);
-        return eventsBuffer;
-    }
-
-    private void addFrame(List<Idea> events, Idea event) {
-        if (events.size()<this.buffer_size) {
-            events.add(event);
+    private void addFrame(Idea event) {
+        if (eventsBuffer.getL().size()<this.buffer_size) {
+            eventsBuffer.getL().add(event);
         } else {
-            events.remove(0);
-            events.add(event);
+            eventsBuffer.getL().remove(0);
+            eventsBuffer.getL().add(event);
         }
-
     }
-
 }

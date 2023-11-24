@@ -5,6 +5,7 @@ import codelets.EventCategoryCodelets.EventInCategoryCodelet;
 import codelets.EventCategoryCodelets.EventOutCategoryCodelet;
 import codelets.EventCategoryCodelets.EventStayCategoryCodelet;
 import entities.PropertyCategory;
+import memory_storage.MemoryInstance;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,15 +15,21 @@ public class EventCategoryLearnerCodelet extends Codelet {
     Memory propertyCategoriesMO;
     Memory objectsBufferMO;
     Memory eventsMO;
+    MemoryInstance objectsBufferMI;
+    MemoryInstance eventsMI;
+
     // CodeletContainer does not have methods for setting outputs, only inputs. Thus, it is not useful.
     // Used a Codelet ArrayList instead;
     ArrayList<Codelet> codeletContainer = new ArrayList<Codelet>();
-    public EventCategoryLearnerCodelet(Mind mind, Memory objectsBufferMO, Memory eventsMO)   {
+    public EventCategoryLearnerCodelet(Mind mind, Memory objectsBufferMO, Memory eventsMO,
+                                       MemoryInstance objectsBufferMI, MemoryInstance eventsMI)   {
         this.mind = mind;
         this.objectsBufferMO = objectsBufferMO;
         this.eventsMO = eventsMO;
-
+        this.objectsBufferMI = objectsBufferMI;
+        this.eventsMI = eventsMI;
     }
+
     @Override
     public void accessMemoryObjects() {
         propertyCategoriesMO=(MemoryObject)this.getInput("PROPERTY_CATEGORIES");
@@ -103,6 +110,8 @@ public class EventCategoryLearnerCodelet extends Codelet {
 
     public void addEventStayTrackerCodelet(PropertyCategory propertyCategory)  {
         EventStayCategoryCodelet eventStayCategoryCodelet = new EventStayCategoryCodelet(propertyCategory);
+        eventStayCategoryCodelet.setObjectsBufferMI(objectsBufferMI);
+        eventStayCategoryCodelet.setEventsMI(eventsMI);
         eventStayCategoryCodelet.addInput(this.objectsBufferMO);
         eventStayCategoryCodelet.addOutput(this.eventsMO);
         eventStayCategoryCodelet.setIsMemoryObserver(true);
@@ -115,6 +124,8 @@ public class EventCategoryLearnerCodelet extends Codelet {
 
     public void addEventInTrackerCodelet(PropertyCategory propertyCategory)  {
         EventInCategoryCodelet eventInCategoryCodelet = new EventInCategoryCodelet(propertyCategory);
+        eventInCategoryCodelet.setObjectsBufferMI(objectsBufferMI);
+        eventInCategoryCodelet.setEventsMI(eventsMI);
         eventInCategoryCodelet.addInput(this.objectsBufferMO);
         eventInCategoryCodelet.addOutput(this.eventsMO);
         eventInCategoryCodelet.setIsMemoryObserver(true);
@@ -127,6 +138,8 @@ public class EventCategoryLearnerCodelet extends Codelet {
 
     public void addEventOutTrackerCodelet(PropertyCategory propertyCategory)  {
         EventOutCategoryCodelet eventOutCategoryCodelet = new EventOutCategoryCodelet(propertyCategory);
+        eventOutCategoryCodelet.setObjectsBufferMI(objectsBufferMI);
+        eventOutCategoryCodelet.setEventsMI(eventsMI);
         eventOutCategoryCodelet.addInput(this.objectsBufferMO);
         eventOutCategoryCodelet.addOutput(this.eventsMO);
         eventOutCategoryCodelet.setIsMemoryObserver(true);
