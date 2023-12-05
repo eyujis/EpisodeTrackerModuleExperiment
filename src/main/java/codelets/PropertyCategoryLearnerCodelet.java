@@ -29,7 +29,7 @@ public class PropertyCategoryLearnerCodelet extends Codelet {
         //  instead of the CSV file.
         ArrayList<RelevantRegionPC> relevantRegionPCArrayList = null;
         try {
-            relevantRegionPCArrayList = new RelevantRegions().getRelevantRegionPCArrayList();
+            relevantRegionPCArrayList = new RelevantRegions().getRelevantRegionsFromMeanShift();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

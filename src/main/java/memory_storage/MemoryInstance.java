@@ -51,7 +51,6 @@ public class MemoryInstance {
 
         JsonObject responseJsonObject = (JsonObject) JsonParser.parseString(getJson);
         String jsonStringLiteral = (String) responseJsonObject.get("value").toString();
-
         String jsonString = new Gson().fromJson(jsonStringLiteral, String.class);
         JsonObject jsonObject = new Gson().fromJson(jsonString, JsonObject.class);
         Idea myIdea = new Gson().fromJson(jsonObject, Idea.class);

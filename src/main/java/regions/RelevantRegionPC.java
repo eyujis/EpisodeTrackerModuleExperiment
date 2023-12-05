@@ -17,6 +17,14 @@ public class RelevantRegionPC implements PropertyCategory {
         this.longitude = longitude;
     }
 
+    public RelevantRegionPC(String name, Double latitude, Double longitude, Double circleRadiusKm) {
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.circleRadiusKm = circleRadiusKm;
+    }
+
+
     @Override
     public boolean belongsToCategory(Object position) {
         if(this.doesPositionIntersectCircle((Position) position))    {
