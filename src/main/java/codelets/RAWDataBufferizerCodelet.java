@@ -3,12 +3,11 @@ import br.unicamp.cst.core.entities.Codelet;
 import br.unicamp.cst.core.entities.Memory;
 import br.unicamp.cst.core.entities.MemoryObject;
 import br.unicamp.cst.representation.idea.Idea;
+import environment.CSTCollectorConnector;
 import environment.Environment;
 import memory_storage.MemoryInstance;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.ArrayList;
 
 public class RAWDataBufferizerCodelet extends Codelet {
     private Environment e;
@@ -20,13 +19,16 @@ public class RAWDataBufferizerCodelet extends Codelet {
     private double firstTimestamp;
     private boolean firstCall = true;
 
+    private long lastConnectionTimestamp = -1;
+
 
     // idea_buffer contains "frames" that have an ArrayList of Ideas;
     private Idea idea_buffer = initializeBuffer(buffer_size);
 
+    CSTCollectorConnector cstCollectorConnector = new CSTCollectorConnector();
 
-    public RAWDataBufferizerCodelet(Environment env, MemoryInstance memoryInstance) {
-        e = env;
+
+    public RAWDataBufferizerCodelet(MemoryInstance memoryInstance) {
         this.rawDataMI = memoryInstance;
     }
 
@@ -37,21 +39,24 @@ public class RAWDataBufferizerCodelet extends Codelet {
 
     @Override
     public void proc() {
-        String[] raw_data = null;
-        // Get next line from the environment.
-        // Each line corresponds to a frame.
-        try {
-            raw_data = e.step();
-        } catch(IOException ex){
-            System.out.println (ex.toString());
+        Idea currentPosition = cstCollectorConnector.getCurrentPosition();
+        if(currentPosition.getName().equals("empty")){
+            return;
         }
 
-        Idea frames = idea_buffer.get("frames");
+        long rvcTimestamp = (long) currentPosition.get("timestamp").getValue();
 
-        addFrame(frames, raw_data, buffer_size);
+        if(rvcTimestamp != lastConnectionTimestamp) {
+            Idea frames = idea_buffer.get("frames");
 
-        rawDataMI.postIdea(idea_buffer);
-        rawDataMO.setI("");
+            addFrame(frames, currentPosition, buffer_size);
+            rawDataMI.postIdea(idea_buffer);
+            rawDataMO.setI("");
+
+            System.out.println(currentPosition.toStringFull());
+
+            lastConnectionTimestamp = rvcTimestamp;
+        }
     }
 
     @Override
@@ -74,7 +79,7 @@ public class RAWDataBufferizerCodelet extends Codelet {
         return idea_buffer;
     }
 
-    private void addFrame(Idea frames, String [] raw_data, int buffer_size) {
+    private void addFrame(Idea frames, Idea currentPosition, int buffer_size) {
 
         // shift right position from frames i=buffer_size-1 to i=0
         for(int i=buffer_size-2; i>=0; i--)    {
@@ -87,15 +92,16 @@ public class RAWDataBufferizerCodelet extends Codelet {
             frames.getL().get(i+1).get("latitude").setValue(ith_latitude);
             frames.getL().get(i+1).get("longitude").setValue(ith_longitude);
         }
+
         if (firstCall)  {
-            frames.getL().get(0).get("timestamp").setValue(Double.valueOf(0));
-            this.firstTimestamp = Double.valueOf(raw_data[0]);
+            frames.getL().get(0).get("timestamp").setValue(Double.valueOf((Long) currentPosition.get("timestamp").getValue()));
+            this.firstTimestamp = Double.valueOf((Long) currentPosition.get("timestamp").getValue());
             firstCall = false;
         }   else {
-            frames.getL().get(0).get("timestamp").setValue((Double.valueOf(raw_data[0])-firstTimestamp)/1000);
+            frames.getL().get(0).get("timestamp").setValue((Double.valueOf((Long) currentPosition.get("timestamp").getValue())-firstTimestamp)/1000);
         }
-        frames.getL().get(0).get("latitude").setValue(Double.valueOf(raw_data[1]));
-        frames.getL().get(0).get("longitude").setValue(Double.valueOf(raw_data[2]));
+        frames.getL().get(0).get("latitude").setValue((Double) currentPosition.get("latitude").getValue());
+        frames.getL().get(0).get("longitude").setValue((Double) currentPosition.get("longitude").getValue());
 
     }
 

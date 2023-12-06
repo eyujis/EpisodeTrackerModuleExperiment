@@ -52,7 +52,7 @@ public class AgentMind extends Mind {
     MemoryInstance episodeBufferMI = new MemoryInstance("EPISODE_BUFFER");
 
     // Create Codelets
-    Codelet rawDataBufferizerCodelet = new RAWDataBufferizerCodelet(env, rawDataMI);
+    Codelet rawDataBufferizerCodelet = new RAWDataBufferizerCodelet(rawDataMI);
     rawDataBufferizerCodelet.addOutput(rawDataBufferMO);
     rawDataBufferizerCodelet.setName("RAWDataBufferizer");
     insertCodelet(rawDataBufferizerCodelet);
@@ -128,7 +128,6 @@ public class AgentMind extends Mind {
 
     // Sets a time step for running the codelets to avoid heating too much your machine
     for (Codelet c : this.getCodeRack().getAllCodelets())
-        c.setTimeStep(1);
-
+        c.setTimeStep(500);
     }
 }
