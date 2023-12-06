@@ -5,19 +5,20 @@ import br.unicamp.cst.core.entities.Memory;
 import br.unicamp.cst.core.entities.MemoryContainer;
 import br.unicamp.cst.core.entities.MemoryObject;
 import br.unicamp.cst.representation.idea.Idea;
-
-import java.util.ArrayList;
-import java.util.List;
+import memory_storage.MemoryInstance;
 
 public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
 
-    PropertyCategory propertyCategory;
+    protected PropertyCategory propertyCategory;
 
     public Memory objectsBufferMO;
     public Memory eventsMO;
+    protected MemoryInstance objectsBufferMI;
+    protected MemoryInstance eventsMI;
+
     public double initialTime=-1;
     public double finalTime;
-    private List<Idea> objectsBufferIdeaList;
+    private Idea objectsBufferIdeaList;
     private Idea objectInitialState;
     private Idea objectFinalState;
 
@@ -41,11 +42,7 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
 
     @Override
     public void proc() {
-        if  (this.objectsBufferMO.getI()=="")   {
-            return;
-        }
-
-        this.objectsBufferIdeaList = (List<Idea>) ((Idea) this.objectsBufferMO.getI()).get("timeSteps").clone().getValue();
+        this.objectsBufferIdeaList = ((Idea) this.objectsBufferMI.getIdea()).get("timeSteps").clone();
 
         if(this.initialTime==-1)    {
             this.objectInitialState = getObjectCurrentState();
@@ -59,11 +56,8 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
             Idea objectInitialStateClone = this.objectInitialState.clone();
             Idea objectFinalStateClone = this.objectFinalState.clone();
             if(eventTracked(objectInitialStateClone, objectFinalStateClone))  {
-                this.eventsMO.setI(this.buildEventIdea(objectInitialStateClone, objectFinalStateClone));
-//                System.out.println("---------------");
-//                System.out.println(((Idea) this.eventsMO.getI()).toStringFull());
-//                System.out.println(((List<Idea>) ((Idea) this.eventsMO.getI()).get("timeSteps").getValue()).get(0).toStringFull());
-//                System.out.println(((List<Idea>) ((Idea) this.eventsMO.getI()).get("timeSteps").getValue()).get(1).toStringFull());
+                this.eventsMI.postIdea(this.buildEventIdea(objectInitialStateClone, objectFinalStateClone));
+                this.eventsMO.setI("");
             }
             this.initialTime = this.finalTime;
             this.objectInitialState = this.objectFinalState.clone();
@@ -72,40 +66,34 @@ public abstract class EventTrackerPropertyCategoryCodelet extends Codelet {
     }
 
     public abstract boolean eventTracked(Idea objectInitialState, Idea objectFinalState);
+
     public Idea getObjectCurrentState() {
         int currentStateIdx = 0;
-        Idea objectCurrentState = this.objectsBufferIdeaList.get(currentStateIdx);
+        Idea objectCurrentState = this.objectsBufferIdeaList.getL().get(currentStateIdx);
         return objectCurrentState.get("object").clone();
     }
-
-    public void updateObjectInitialState() {
-        int initialStateIdx = this.objectsBufferIdeaList.size()-1;
-        Idea objectInitialState = this.objectsBufferIdeaList.get(initialStateIdx);
-        this.objectInitialState = objectInitialState.get("object");
-    }
-
-    public void updateObjectFinalState() {
-        int finalStateIdx = 0;
-        Idea objectFinalState = this.objectsBufferIdeaList.get(finalStateIdx);
-        this.objectFinalState = objectFinalState.get("object");
-    }
-
 
     public double getObjectTime(Idea objectState)    {
         double time = (double) objectState.get("time").clone().getValue();
         return time;
     }
 
-
     public Idea buildEventIdea(Idea objectInitialState, Idea objectFinalState)   {
         Idea event = new Idea(this.getName(), "", 0);
-        List<Idea> timeSteps = new ArrayList<Idea>();
-        timeSteps.add(objectInitialState);
-        timeSteps.add(objectFinalState);
-        event.add(new Idea("timeSteps",timeSteps));
+        Idea timeSteps = new Idea("timeSteps", "", 0);
+        timeSteps.getL().add(objectInitialState);
+        timeSteps.getL().add(objectFinalState);
+        event.getL().add(timeSteps);
         return event;
     }
 
+    public void setObjectsBufferMI(MemoryInstance objectsBufferMI) {
+        this.objectsBufferMI = objectsBufferMI;
+    }
 
+    public void setEventsMI(MemoryInstance eventsMI) {
+        this.eventsMI = eventsMI;
+    }
 
 }
+

@@ -25,9 +25,11 @@ public class PropertyCategoryLearnerCodelet extends Codelet {
 
     @Override
     public void proc() {
+        // TODO I need to modify this codelet. It should be updated by the relevant regions updated by Anderson's API
+        //  instead of the CSV file.
         ArrayList<RelevantRegionPC> relevantRegionPCArrayList = null;
         try {
-            relevantRegionPCArrayList = new RelevantRegions().getRelevantRegionPCArrayList();
+            relevantRegionPCArrayList = new RelevantRegions().getRelevantRegionsFromMeanShift();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

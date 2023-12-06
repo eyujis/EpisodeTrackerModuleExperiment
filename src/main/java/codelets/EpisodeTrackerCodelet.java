@@ -4,6 +4,7 @@ import br.unicamp.cst.core.entities.Codelet;
 import br.unicamp.cst.core.entities.Memory;
 import br.unicamp.cst.core.entities.MemoryObject;
 import br.unicamp.cst.representation.idea.Idea;
+import memory_storage.MemoryInstance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +13,12 @@ public class EpisodeTrackerCodelet extends Codelet {
 
     Memory eventsBufferMO;
     Memory episodeMO;
+    MemoryInstance eventsBufferMI;
+    MemoryInstance episodeMI;
+
     Idea eventsBuffer;
     Idea currentEvent;
-    ArrayList<Idea> eventsFrames;
-    ArrayList<Idea> timeSteps;
+    Idea timeSteps;
 
     Idea initialStayTimeStep;
     Idea finalStayTimeStep;
@@ -27,6 +30,10 @@ public class EpisodeTrackerCodelet extends Codelet {
     String moveEventName = "MOVE";
     boolean moveEventSequenceStarted = false;
 
+    public EpisodeTrackerCodelet(MemoryInstance eventsBufferMI, MemoryInstance episodeMI) {
+        this.eventsBufferMI = eventsBufferMI;
+        this.episodeMI = episodeMI;
+    }
 
     @Override
     public void accessMemoryObjects() {
@@ -41,39 +48,38 @@ public class EpisodeTrackerCodelet extends Codelet {
 
     @Override
     public void proc() {
-        if (this.eventsBufferMO.getI()=="") {
+        if (this.eventsBufferMI == null) {
             return;
         }
         try {
-            eventsBuffer = (Idea) this.eventsBufferMO.getI();
-            eventsFrames = (ArrayList<Idea>) eventsBuffer.getValue();
+            eventsBuffer = this.eventsBufferMI.getIdea();
         }   catch (java.lang.NullPointerException e)   {return;}
 
-        currentEvent = getLastPosition(eventsFrames).clone();
+        currentEvent = getLastPosition(eventsBuffer).clone();
 
         concatenateStayEventAndSetI(currentEvent);
         setIOutEvent(currentEvent);
         detectMoveEventAndSetI(currentEvent);
         setIInEvent(currentEvent);
-//            System.out.println( ((Idea) this.episodeMO.getI()).toStringFull());
-
     }
 
     private void detectMoveEventAndSetI(Idea currentEvent)  {
         if(isOutEvent(currentEvent) == true) {
             moveEventSequenceStarted = true;
-            timeSteps = (ArrayList<Idea>) currentEvent.get("timeSteps").getValue();
-            initialMoveTimeStep = timeSteps.get(0).clone();
+            timeSteps = currentEvent.get("timeSteps");
+            initialMoveTimeStep = timeSteps.getL().get(0).clone();
         }   else if(isInEvent(currentEvent) != true){
             moveEventSequenceStarted = false;
         }
 
         if(isInEvent(currentEvent) == true && moveEventSequenceStarted == true) {
-            timeSteps = (ArrayList<Idea>) currentEvent.get("timeSteps").getValue();
-            finalMoveTimeStep = timeSteps.get(0).clone();
+            timeSteps = currentEvent.get("timeSteps");
+            finalMoveTimeStep = timeSteps.getL().get(0).clone();
 
             Idea moveEventSequence = buildEventIdea(moveEventName, initialMoveTimeStep, finalMoveTimeStep);
-            this.episodeMO.setI(moveEventSequence);
+
+            this.episodeMI.postIdea(moveEventSequence);
+            this.episodeMO.setI("");
 
             moveEventSequenceStarted = false;
         }
@@ -92,20 +98,22 @@ public class EpisodeTrackerCodelet extends Codelet {
                 stayEventSequenceStarted = true;
                 stayEventSequenceName = currentEvent.getName();
 
-                timeSteps = (ArrayList<Idea>) currentEvent.get("timeSteps").getValue();
-                initialStayTimeStep = timeSteps.get(0).clone();
-                finalStayTimeStep = timeSteps.get(timeSteps.size()-1).clone();
+                timeSteps = currentEvent.get("timeSteps");
+                initialStayTimeStep = timeSteps.getL().get(0).clone();
+                finalStayTimeStep = timeSteps.getL().get(timeSteps.getL().size()-1).clone();
             }
 
             if (stayEventSequenceStarted == true) {
-                timeSteps = (ArrayList<Idea>) currentEvent.get("timeSteps").getValue();
-                finalStayTimeStep = timeSteps.get(timeSteps.size()-1).clone();
+                timeSteps = currentEvent.get("timeSteps");
+                finalStayTimeStep = timeSteps.getL().get(timeSteps.getL().size()-1).clone();
             }
         }   else   {
             if (stayEventSequenceStarted==true)  {
                 stayEventSequenceStarted=false;
                 Idea stayEventSequence = buildEventIdea(stayEventSequenceName, initialStayTimeStep, finalStayTimeStep);
-                this.episodeMO.setI(stayEventSequence);
+
+                this.episodeMI.postIdea(stayEventSequence);
+                this.episodeMO.setI("");
 //                System.out.println( ((Idea) this.episodeMO.getI()).toStringFull());
             }
 //            this.episodeMO.setI(currentEvent);
@@ -115,13 +123,15 @@ public class EpisodeTrackerCodelet extends Codelet {
 
     private void setIOutEvent(Idea currentEvent) {
         if (isOutEvent(currentEvent) == true)   {
-            this.episodeMO.setI(currentEvent);
+            this.episodeMI.postIdea(currentEvent);
+            this.episodeMO.setI("");
         }
     }
 
     private void setIInEvent(Idea currentEvent) {
         if (isInEvent(currentEvent) == true)   {
-            this.episodeMO.setI(currentEvent);
+            this.episodeMI.postIdea(currentEvent);
+            this.episodeMO.setI("");
         }
     }
 
@@ -145,8 +155,8 @@ public class EpisodeTrackerCodelet extends Codelet {
         }
         return false;
     }
-    private Idea getLastPosition(ArrayList<Idea> eventsFrames)   {
-        return eventsFrames.get(eventsFrames.size()-1);
+    private Idea getLastPosition(Idea eventsFrames)   {
+        return eventsFrames.getL().get(eventsFrames.getL().size()-1);
     }
 
     public Idea buildEventIdea(String eventName, Idea initialTimeStep, Idea finalTimeStep)   {

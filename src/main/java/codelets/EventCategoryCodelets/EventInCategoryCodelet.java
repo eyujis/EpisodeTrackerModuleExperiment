@@ -6,10 +6,8 @@ import entities.PropertyCategory;
 import regions.Position;
 
 public class EventInCategoryCodelet extends EventTrackerPropertyCategoryCodelet {
-    PropertyCategory propertyCategory;
 
     public EventInCategoryCodelet(PropertyCategory propertyCategory)   {
-        super();
         this.propertyCategory = propertyCategory;
         this.setName(propertyCategory.getName()+" - IN");
     }

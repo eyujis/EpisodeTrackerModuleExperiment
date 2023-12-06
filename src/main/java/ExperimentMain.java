@@ -1,18 +1,13 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.unicamp.cst.io.rest.RESTServer;
 import environment.Environment;
-import br.unicamp.cst.util.viewer.MindViewer;
 
 
 public class ExperimentMain {
-	
-	public Logger logger = Logger.getLogger(ExperimentMain.class.getName());
-        
+
         
 	public ExperimentMain() throws IOException {
 
@@ -24,18 +19,8 @@ public class ExperimentMain {
 		// Creates the Agent Mind and start it
 		AgentMind mind = new AgentMind(env);
 
-//		MindViewer mv = new MindViewer(mind, "Mind", new ArrayList<>());
-//		mv.setVisible(true);
-
-
-
-
-		// Creates RESTServer for visualization
-		int port = 4000;
-		String GET_URL = "http://localhost:"+port;
-		RESTServer rs = new RESTServer(mind,port,true);
-
-            
+		// Start Cognitive Cycle
+		mind.start();
         }
 
 
